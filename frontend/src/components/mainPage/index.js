@@ -58,18 +58,19 @@ const MainPage = () => {
           </p>
         </div>
         </div>
-      </div>
-      <div>
+      
+      <div className="middle-page-main">
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         {/* <ShopIndex /> */}
+          <h1 className="recently-added">Recently Added Shops</h1>
         <div className="card-container">
          {lastThreeShops.map((cardData, index) => (
         <Card
           key={index}
-          shopName={<ShopIndexItem key={index} shop={cardData}>{cardData.name}</ShopIndexItem>}
+          shopName={<ShopIndexItem key={index} className="a" shop={cardData}>{cardData.name}</ShopIndexItem>}
           address={cardData.address}
           city={cardData.city}
           image="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
@@ -78,6 +79,7 @@ const MainPage = () => {
        ))} 
        </div>
 
+      </div>
       </div>
     </>
   );

@@ -1,12 +1,99 @@
-.shop-index{
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin: 200px 0px 100px 0px;
-flex-direction: column;
+#main-container {
+  position: relative;
+  /* height: calc(100vh - 80px); */
+  height: 100%;
+  width: 100%;
+  top: 80px;
+  padding-bottom: 180px;
+  /* margin: auto; */
 }
 
-.card{
-    margin: 12px 0px 20px 0px;
-    width: 400px;
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.list-items {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  /* display: table; */
+  min-width: 90%;
+  /* table-layout: auto; */
+  border-color: #ebebeb;
+  margin: 0px;
+  padding: 0px;
+  font: inherit;
+  vertical-align: baseline;
+  /* border-top: 1px solid #ebebeb; */
+  border-bottom: 1px solid #ebebeb;
+  border-left: none;
+  border-right: none;
+  margin-left: 15px;
+  margin-right: 15px;
+  line-height: 1.5;
+}
+
+.list-items a {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  vertical-align: baseline;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  align-items: center;
+}
+
+.shop-name a:hover {
+  text-decoration: underline;
+}
+
+.list-items:hover {
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.split {
+  /* height: 100%; */
+  width: 50%;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  width: 60%;
+  background-color: #ffff;
+}
+
+/* Control the right side */
+.right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.money {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: rgba(45, 46, 47, 1);
+  text-align: left;
 }
