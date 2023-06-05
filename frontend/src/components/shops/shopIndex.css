@@ -1,0 +1,12 @@
+.shop-index{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 200px 0px 100px 0px;
+flex-direction: column;
+}
+
+.card{
+    margin: 12px 0px 20px 0px;
+    width: 400px;
+}

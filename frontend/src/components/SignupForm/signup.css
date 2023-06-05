@@ -1,0 +1,99 @@
+.signup-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white;
+    /* z-index: 2;
+    position: relative; */
+}
+
+.signup-page form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 14px 28px rgba(0,0,0,0.25), 0px 10px 10px rgba(0,0,0,0.22);
+    background-color: #ffffff;
+}
+/* .signup-page {
+    position: relative;
+    height: 100vh;
+  } */
+
+.signup-page input{
+    /* padding: 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 2px solid gray;
+    outline: none;
+    transition: border 0.3s ease; */
+
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    *width: 90%;
+    margin: 0 0 18px;
+    padding: 5px 9px;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1.28571em;
+    line-height: 1.29em;
+}
+
+.signup-page input:focus{
+    border: 2px solid rgb(210, 19, 19);
+}
+
+.signup-page h2 {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 22px;
+    line-height: 1.28571em;
+    color: #d32323;
+    text-align: center;
+    padding-bottom: 10px;
+    display: block;
+    margin: 0 0 6px;
+}
+
+.signup-page p{
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5em;
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+}
+
+.signup-page h3{
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+}
+
+.signup-page button{
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 30px;
+    color: #ffffff;
+    background-color:#d32323;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.signup-page button:hover{
+    background-color: rgb(193, 98, 98);
+}
+
