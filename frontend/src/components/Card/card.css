@@ -14,29 +14,42 @@
   padding: 4px 16px 20px 16px;
 }
 
-.styleImage img{
+.styleImage img {
   background-color: lightgray;
   border-radius: 8px 8px 0 0;
   max-height: 140px;
   overflow: hidden;
   width: 100%;
-
 }
 
 .styleCardTitle {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin: 12px 0px 0px 0px;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .styleLocationLabel {
-  color: #8294aa;
-  font-size: 14;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: black;
+  font-size: 18px;
   margin: 4px 0;
 }
 
 .styleDescription {
   font-size: 14;
   margin: 8px 0 0 0;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.rating{
+  display: flex;
+ flex-direction: row;
+ margin-top: 10px;
+ list-style-type: none;
+}
+.rating li{
+  color: pink;
 }

@@ -22,27 +22,26 @@ const CardContent = ({ shopName, address, city }) => {
   return (
     <div className="styleCardContent">
       <p className="styleCardTitle">{shopName}</p>
-      <p className="styleLocationLabel">{address}</p>
-      <p className="styleDescription">{city}</p>
+      <ul className="rating">
+        <li><i class="fa-solid fa-ice-cream"></i></li>
+        <li><i class="fa-solid fa-ice-cream"></i></li>
+        <li><i class="fa-solid fa-ice-cream"></i></li>
+        <li><i class="fa-solid fa-ice-cream"></i></li>
+        <li><i class="fa-solid fa-ice-cream"></i></li>
+      </ul>
+      <p className="styleLocationLabel">{address}, {city}</p>
+      {/* <p className="styleDescription">{city}</p> */}
     </div>
   );
 };
 
 const Card = ({shopName, address, city}) => {
 
-  // const dispatch = useDispatch()
- 
-  // const lastThreeShops = useSelector(state => Object.values(state.shops))
 
-  // useEffect(()=>{
-  //   dispatch(fetchShopLast())
-  // },[])
-  
   return (
     <div >
       <div className="styleCard">
         <CardImage image={"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"}></CardImage>
-        {/* {lastThreeShops.map((cardData, index) => ( */}
         <CardContent
           
           shopName={shopName}

@@ -2,35 +2,52 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchShops, getShops } from "../../store/shops";
 import { useEffect } from "react";
 import ShopIndexItem from "./ShopIndexItem";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import './shopIndex.css'
-import Card from "../Card/card";
-
-
+import "./shopIndex.css";
+import MeltMapWrapper from "../Map";
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
- 
+
   useEffect(() => {
     dispatch(fetchShops());
   }, []);
 
-   const shops = useSelector(getShops);
+  const shops = useSelector(getShops);
+  if (!shops) return null;
 
   return (
     <>
-    <div className="shop-index">
-      {shops.map((shop, index) => (
-        // <ShopIndexItem className="indexed-item" key={index} shop={shop} />
-        <Card
-        key={index}
-        shopName={<ShopIndexItem key={index} shop={shop}>{shop.name}</ShopIndexItem>}
-        address={shop.address}
-        city={shop.city}
-        image="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
-        className="card"
-      ></Card> 
-      ))}
+      <div id="main-container">
+        <div className="container">
+          <div className="split left">
+            <ul className="index-list">
+              {shops.map((shop, index) => (
+              <>
+                      <li className="list-items">
+                        <ShopIndexItem className="a" key={index} shop={shop}>
+                          {shop.id}.{shop.name}
+                        </ShopIndexItem>
+                        <p>Ratings...</p>
+                        <p className="money city"> $$ • {shop.city}</p>
+                        <p>
+                          <span style={{ color: "green", fontSize: "22px" }}>
+                            Open
+                          </span>{" "}
+                          <span style={{ color: "black", fontSize: "14px" }}>
+                            until {shop.closingTime}.00PM
+                          </span>
+                        </p>
+                        <p>"Best ice cream in town!"</p>
+                      </li>
+              </>
+            ))}
+                    </ul>
+          </div>
+          <div className="image"></div>
+          <div className="split right">
+            <MeltMapWrapper className="map"></MeltMapWrapper>
+          </div>
+        </div>
       </div>
     </>
   );

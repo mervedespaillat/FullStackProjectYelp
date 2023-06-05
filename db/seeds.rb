@@ -43,7 +43,10 @@
         price_range: 8,
         phone_number: '(929)337-6907',
         longitude: 40.7184296,
-        latitude: -73.9623795
+        latitude: -73.9623795,
+        opening_time: 9,
+        closing_time: 7,
+        rating: 4.5
       )
       Shop.create!(
         name: 'Minus Celsius',
@@ -55,8 +58,12 @@
         price_range: 10,
         phone_number: '(407)797-7174',
         longitude: 40.718162,
-        latitude: -73.993784
+        latitude: -73.993784,
+        opening_time: 10,
+        closing_time: 9,
+        rating: 4
       )
+
       Shop.create!(
         name: 'Odd Fellows',
         address: '334 Furman Street',
@@ -67,9 +74,58 @@
         price_range: 9,
         phone_number: '(845)495-3229',
         longitude: 40.6950,
-        latitude: 73.0017
+        latitude: 73.0017,
+        opening_time: 9,
+        closing_time: 9,
+        rating: 3
       )
   
+      Shop.create!(
+        name: 'Venchi',
+        address: '861 Broadway',
+        city: 'New York',
+        state: 'New York',
+        zip_code: "10003",
+        link: 'https://us.venchi.com/',
+        price_range: 10,
+        phone_number: '(646)448-8663',
+        longitude: 40.737460,
+        latitude: -73.990580,
+        opening_time: 11,
+        closing_time: 11,
+        rating: 5
+      )
+
+      Shop.create!(
+        name: "Gunther's Ice Cream",
+        address: '2801 Franklin Blvd',
+        city: 'Sacramento',
+        state: 'CA',
+        zip_code: "95818",
+        link: 'http://gunthersicecream.com/',
+        price_range: 8,
+        phone_number: '(916)457-6646',
+        longitude: 38.539902,
+        latitude: -121.475510,
+        opening_time: 11,
+        closing_time: 9,
+        rating: 5
+      )
+
+      Shop.create!(
+        name: 'Lillo Gelato',
+        address: '2801 Franklin Blvd',
+        city: 'Sacramento',
+        state: 'CA',
+        zip_code: "95818",
+        link: 'http://gunthersicecream.com/',
+        price_range: 8,
+        phone_number: '(916)457-6646',
+        longitude: 38.539902,
+        latitude: -121.475510,
+        opening_time: 11,
+        closing_time: 9,
+        rating: 5
+      )
       
     puts "Done!"
-  end
