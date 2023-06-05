@@ -1,0 +1,49 @@
+.background-img {
+    position: relative;
+    width: 100%;
+}
+
+.background-img img {
+    width: 100%;
+    height: 800px;
+    z-index: -1;
+    top: 0;
+  }
+  
+  .home-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .home-text .app-name {
+    font-size: 24px;
+    font-weight: bold;
+    font-size: 70px;
+    font-family: 'Oxygen', sans-serif;
+    color: white;
+  }
+  
+  .home-text .shops-button {
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 2px;
+  color: #ffffff;
+  background-color:#d32323;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
+  }
+  
+  .home-text .main-text {
+    margin-top: 15px;
+    font-size: 35px;
+    font-family: 'Oxygen', sans-serif;
+    color: white;
+  }
+  

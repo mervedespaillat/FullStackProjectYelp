@@ -1,0 +1,126 @@
+/* .profile-button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown{
+    position: relative;
+    display: inline-block;
+  }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 20px); /* Adjust the value as needed */
+  /* left: 0;
+  padding-right: 100px;
+  background-color: #b36060;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow: auto; */
+/* } */
+/* .dropdown-content a {
+    color: black;
+    /* padding: 12px 16px; */
+    /* text-decoration: none;
+    display: block;
+    text-align: left;
+  } */
+
+/* .profile-dropdown {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; */
+/* } */
+
+/* .profile-dropdown li {
+  display: inline-block;
+} */
+/* 
+.profile-dropdown li a {
+  color: white;
+  display: block;
+  font-size: 12px;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-align: center;
+} */ 
+
+/* .dropdown-content ul ul li {
+    display: block;
+    }
+    
+    .dropdown-content li:hover ul {
+    display: block;
+    }
+
+    .dropdown-content ul ul li a:hover {
+        background-color: #555;
+        } */
+
+/* 
+        .dropdown {
+            position: relative;
+          }
+          
+          .profile-dropdown ul {
+            position: absolute;
+          
+            list-style-type: none;
+            margin: 5px 0;
+            padding: 0;
+          
+            border: 1px solid grey;
+            width: 150px;
+          }
+          
+          .profile-dropdown  li {
+            margin: 0;
+          
+            background-color: white;
+          }
+          
+          .profile-dropdown  li:hover {
+            background-color: lightgray;
+          }
+          
+          .profile-dropdown li  button {
+            width: 30;
+            height: 30;
+            text-align: left;
+          
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 5px;
+            margin: 0;
+            font: inherit;
+            cursor: pointer;
+          } */
+
+
+          .profile-dropdown {
+            /* margin-top: 85px; */
+            /* margin-right: 100px;
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            border: 1px solid red; */
+          }
+
+          .profile-dropdown li {
+            display: flex;
+            flex-direction: column;
+            padding: 8px 16px; 
+            border: 1px solid red
+          }
+
+          .dropdown-content{
+            position: absolute;
+            top: 50px;
+            right:0;
+
+          }

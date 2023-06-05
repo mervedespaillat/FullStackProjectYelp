@@ -1,0 +1,73 @@
+
+.home-page{
+  justify-content: center;
+  text-align: center; 
+}
+
+.background-img{
+    width: 100%;
+    height: 800px;
+    top: 0;
+    left: 0;
+    display: flex;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: -1; 
+    /* display: flex;
+    width: 100%;
+    height: 700px;
+    top: 0;
+    left: 0;
+    display: flex;
+    /* position: relative; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat;  */
+  } 
+  
+  .main-text{
+    /* text-align: center;
+    font-size: 38px;
+    font-family: 'Oxygen', sans-serif;
+    color: white; */
+  }
+
+  .app-name{
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Oxygen', sans-serif;
+    color: white;
+    }
+
+    .home-text{
+      /* text-align: center;
+      margin-top: 100px;
+      z-index: -1;
+      position: absolute;
+      justify-content: center;  */
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(200, 70, 170);
+      padding: 10px;
+      text-align:flex-start;
+
+}
+
+.shops-button{
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 30px;
+  color: #ffffff;
+  background-color:#d32323;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shops-button:hover{
+  background-color: rgb(193, 98, 98);
+}
