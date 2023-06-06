@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:new, :create, :delete, :edit] 
   end
+  
+  get '*path', to: "static_pages#frontend_index"
 
 end
 
