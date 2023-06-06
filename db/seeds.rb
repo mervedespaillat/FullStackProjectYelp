@@ -9,9 +9,9 @@
     require "open-uri"
     
     puts "Destroying tables..."
+    Review.destroy_all
     User.destroy_all
     Shop.destroy_all 
-    Review.destroy_all
   
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')
