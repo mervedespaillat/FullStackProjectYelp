@@ -14,7 +14,7 @@ const ReviewIndex = () => {
     },[])
 
     const listedReviews = reviews.map(review => <ReviewIndexItem review={review}/>)
-    console.log(listedReviews)
+    
     return (
         <>
         <ul>{listedReviews}</ul>

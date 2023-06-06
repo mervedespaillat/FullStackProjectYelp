@@ -48,7 +48,6 @@ export const fetchShop = (shopId) => async (dispatch) =>{
     const response = await fetch(`/api/shops/${shopId}`)
     if(response.ok){
         const shopObj = response.json()
-        console.log("Shop Object =>",shopObj);
         dispatch(receiveShop(shopObj));
     }
 }

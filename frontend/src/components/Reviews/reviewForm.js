@@ -62,7 +62,6 @@ const ReviewForm = () => {
                         <div className="rating-button"> put here starts</div>
                         </div>
                         <h1>{buttonText}</h1>
-        {/* {console.log(ratin)} */}
             <label>
                 Body
                 <input type='text' onChange={handleBody} value={body}placeholder="Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the strawberry ice cream, and wow... there are no words. A classic ice cream done right.There is about million flavor available, you really can't go wrong. Not mush else to say besides go see for yourself! You won't be disappointed"></input>
