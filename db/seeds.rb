@@ -181,10 +181,10 @@
 
     puts "aws"
 
-    # Shop.all.each_with_index do |shop, index|
-    #   shop.photo.attach(io: URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"),
-    #   filename: "shop#{index + 1}.jpg"
-    # )
-    # end
+    Shop.all.each_with_index do |shop, index|
+      shop.photo.attach(io: URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"),
+      filename: "shop#{index + 1}.jpg"
+    )
+    end
 
     puts "help! im melting"
