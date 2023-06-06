@@ -23,7 +23,6 @@ class Api::ReviewsController < ApplicationController
     def create 
         @review = Review.new(review_params)
         @review.user_id = current_user.id
-        debugger
         if @review.save
             # @review.shop.update_avg_rating
             render :show

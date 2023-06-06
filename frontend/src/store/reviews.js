@@ -12,7 +12,6 @@ export const receiveReviews = (reviews) => {
   };
 };
 export const receiveReview = (review) => {
-    debugger
   return {
     type: RECEIVE_REVIEW,
     review,
@@ -78,7 +77,6 @@ export const createReview = (review) => async (dispatch) => {
   }
   else{
     const data = await response.json()
-    console.log(data.errors)
   }
 };
 
