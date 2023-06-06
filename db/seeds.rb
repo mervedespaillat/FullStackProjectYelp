@@ -183,8 +183,8 @@
 
     Shop.all.each_with_index do |shop, index|
       unless shop.photo.attached?
-        file = URI.open("https://melt-seeds.s3.amazonaws.com/shop1.jpg")
-        shop.photo.attach(io: file, filename: "shop1.jpg")
+        file = URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg")
+        shop.photo.attach(io: file, filename: "shop#{index + 1}.jpg")
       end
         
     end
