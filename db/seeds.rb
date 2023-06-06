@@ -182,9 +182,11 @@
     puts "aws"
 
     Shop.all.each_with_index do |shop, index|
-      shop.photo.attach(io: URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"),
-      filename: "shop#{index + 1}.jpg"
-    )
+      unless shop.photo.attached?
+        file = URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg")
+        shop.photo.attach(io: file, filename: "shop#{index + 1}.jpg")
+      end
+        
     end
 
     puts "help! im melting"
