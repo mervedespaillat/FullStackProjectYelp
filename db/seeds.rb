@@ -138,7 +138,7 @@
         body: "O la la! Fantastic ice-cream!",
         rating: 5,
         shop_id: 4,
-        user_id: 2
+        user_id: 1
       )
 
       Review.create!(
@@ -181,10 +181,10 @@
 
     puts "aws"
 
-    Shop.all.each_with_index do |shop, index|
-      shop.photo.attach(io: URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"),
-      filename: "shop#{index + 1}.jpg"
-    )
-    end
+    # Shop.all.each_with_index do |shop, index|
+    #   shop.photo.attach(io: URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"),
+    #   filename: "shop#{index + 1}.jpg"
+    # )
+    # end
 
     puts "help! im melting"
