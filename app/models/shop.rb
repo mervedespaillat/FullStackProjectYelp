@@ -3,12 +3,7 @@ class Shop < ApplicationRecord
 
     has_one_attached :photo
 
-    
-
-    has_many :reviews,
-    class_name: :Reviews,
-    foreign_key: :shop_id,
-    dependent: :destroy
+    has_many :reviews
 
     has_many :reviewers,
     through: :reviews,

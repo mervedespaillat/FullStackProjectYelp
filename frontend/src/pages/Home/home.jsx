@@ -9,6 +9,7 @@ import ShopShow from "../../components/shops/ShopShow";
 import React from "react";
 import ShopIndex from "../../components/shops/ShopIndex";
 import "./home.css";
+import ReviewForm from "../../components/Reviews/reviewForm";
 
 
 const Home = () => {
@@ -33,6 +34,9 @@ const Home = () => {
         </Route>
         <Route exact path="/shops">
           <ShopIndex />
+        </Route>
+        <Route exact path="/review/:reviewId">
+          <ReviewForm />
         </Route>
       </Switch>
       <Footer></Footer>

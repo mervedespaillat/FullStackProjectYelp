@@ -8,9 +8,16 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     get "recent3", to: "shops#recent3"
+    get "recent_reviews", to: "reviews#recent_reviews"
+    get "user_reviews", to: "reviews#user_reviews"
+
     resources :users, only: [:create, :update, :show]
     resource :session, only: [:show, :create, :destroy]
-    resources :shops, only: [:show, :index]
+    resources :shops, only: [:show, :index] do
+      resources :reviews, only: [:index]
+    end
+    resources :reviews, only: [:new, :create, :delete, :edit] 
   end
 
 end
+
