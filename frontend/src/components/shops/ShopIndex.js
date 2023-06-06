@@ -14,16 +14,24 @@ const ShopIndex = () => {
 
   const shops = useSelector(getShops);
   if (!shops) return null;
+  
 
   return (
     <>
       <div id="main-container">
         <div className="container">
           <div className="split left">
-            <ul className="index-list">
               {shops.map((shop, index) => (
-              <>
-                      <li className="list-items">
+                
+                <div className="list-items">
+                        <div className="split-card card-left">
+
+                  <img src={shop.photo} className="index-image" />
+                        </div>
+          
+                <div className="split-card card-right">
+                        <ul className="index-list">
+                        <li>
                         <ShopIndexItem className="a" key={index} shop={shop}>
                           {shop.id}.{shop.name}
                         </ShopIndexItem>
@@ -39,9 +47,10 @@ const ShopIndex = () => {
                         </p>
                         <p>"Best ice cream in town!"</p>
                       </li>
-              </>
-            ))}
                     </ul>
+                </div>
+                </div>
+            ))}
           </div>
           <div className="image"></div>
           <div className="split right">

@@ -18,10 +18,7 @@ class User < ApplicationRecord
   validates :zip_code, presence: true
   validates :password, length: { in: 6..255 }, allow_nil: true
 
-  has_many :reviews,
-  class_name: :Review,
-  foreign_key: :user_id,
-  dependent: :destroy
+  has_many :reviews
 
   has_secure_password
 
