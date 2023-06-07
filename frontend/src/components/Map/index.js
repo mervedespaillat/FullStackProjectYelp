@@ -7,7 +7,7 @@ const MeltMapWrapper=()=> {
     return (
         <div className="map">
        <Wrapper apiKey={"AIzaSyAFxMaLXHUS9fPBdsU_8mT25fi_mdLkYxo"}>
-         <MyMapComponent center={{ lat: 40.932690, lng: 29.126810 }} zoom={8} />
+         <MyMapComponent center={{ lat: 40.932690, lng: 29.126810 }} zoom={10} />
        </Wrapper>
          </div>
     )

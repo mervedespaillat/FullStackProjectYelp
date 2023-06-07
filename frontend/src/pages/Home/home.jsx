@@ -35,11 +35,8 @@ const Home = () => {
         <Route exact path="/shops">
           <ShopIndex />
         </Route>
-        {/* <Route exact path="/review/:reviewId">
-          <ReviewForm />
-        </Route> */}
-        <Route exact path="/review">
-          <ReviewForm></ReviewForm>
+        <Route exact path="/shops/:shopId/review">
+          <ReviewForm/>
         </Route>
       </Switch>
       <Footer></Footer>

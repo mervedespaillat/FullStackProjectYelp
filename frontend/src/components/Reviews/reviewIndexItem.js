@@ -12,13 +12,17 @@ const ReviewIndexItem = ({review}) => {
 
 
     const handleClick = () =>{
+        
         dispatch(deleteReview(review.id))
     }
+    if(!review) return null
     return (
         <>
         {/* <Link to={`reviews/${review.id}`}>{date}</Link> */}
+        <ul>
         <li>{review.body}</li>
         <li>{review.rating}</li>
+        </ul>
         <Link to={`reviews/${review.id}/edit`}>Edit</Link>
         <button onClick={handleClick}>Delete Review</button>
         </>

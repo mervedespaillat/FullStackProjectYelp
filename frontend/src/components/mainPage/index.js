@@ -9,13 +9,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchShopLast } from "../../store/shops";
 import Card from "../Card/card";
 import ShopIndexItem from "../shops/ShopIndexItem";
+import { fetchLastReviews } from "../../store/reviews";
 
 const MainPage = () => {
 
     const dispatch = useDispatch()
  
     const lastThreeShops = useSelector(state => Object.values(state.shops))
+
+    const lastThreeReviews = useSelector(state => Object.values(state.review))
   
+    useEffect(()=>{
+      dispatch(fetchLastReviews())
+    },[])
+
     useEffect(()=>{
       dispatch(fetchShopLast())
     },[])
@@ -77,6 +84,17 @@ const MainPage = () => {
           className="card"
         ></Card> 
        ))} 
+       </div>
+       <div className="review-card">
+        {lastThreeReviews.map((reviewData, index)=>(
+          <Card
+          key={index}
+          shopName={"username"}
+          address={reviewData.rating}
+          city={reviewData.body}
+          image="https://images.unsplash.com/photo-1516043827470-d52c543c438f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
+          ></Card>
+        ))}
        </div>
 
       </div>
