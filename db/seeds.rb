@@ -190,18 +190,21 @@
 
      6.times do |index|
         url = "https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"
-        puts "this is before line 93"
+        # puts "this is before line 93"
         filename = "shop#{index + 1}.jpg"
+        # puts URI.open(url)
         shop_photo << {io: URI.open(url), filename: filename}
-        puts shop_photo
+        # puts shop_photo
+        Shop.find(index + 1).photo.attach(io: URI.open(url), filename: filename)      
       end
 
 
 
-    Shop.all.each_with_index do |shop, index|
-      puts "this is where loop start"
-      shop.photo.attach(shop_photo[index])
-      puts "this is where loops end"
-    end
+
+    # Shop.all.each_with_index do |shop, index|
+    #   puts "this is where loop start"
+    #   shop.photo.attach(shop_photo[index])
+    #   puts "this is where loops end"
+    # end
 
     puts "help! im melting"
