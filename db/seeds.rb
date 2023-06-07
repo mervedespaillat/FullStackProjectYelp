@@ -192,7 +192,7 @@
         puts "this is before line 93"
         filename = "shop#{index + 1}.jpg"
         shop_photo << {io: URI.open(url), filename: filename}
-        puts "this is line 95"
+        puts shop_photo
       end
 
 
