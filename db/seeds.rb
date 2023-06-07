@@ -14,10 +14,9 @@
     Shop.destroy_all 
   
     puts "Resetting primary keys..."
-    ApplicationRecord.connection.reset_pk_sequence!
-    ('reviews')
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('shops')
+    ApplicationRecord.connection.reset_pk_sequence!('reviews')
   
     puts "Creating users..."
 
@@ -187,7 +186,9 @@
 
       n_time = Shop.all.length
 
-      n_time.times do |index|
+      puts n_time
+
+     6.times do |index|
         url = "https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"
         puts "this is before line 93"
         filename = "shop#{index + 1}.jpg"
