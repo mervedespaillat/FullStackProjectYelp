@@ -14,10 +14,10 @@
     Shop.destroy_all 
   
     puts "Resetting primary keys..."
+    ApplicationRecord.connection.reset_pk_sequence!
+    ('reviews')
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('shops')
-    # ApplicationRecord.connection.reset_pk_sequence!
-    # ('reviews')
   
     puts "Creating users..."
 
@@ -198,7 +198,9 @@
 
 
     Shop.all.each_with_index do |shop, index|
+      puts "this is where loop start"
       shop.photo.attach(shop_photo[index])
+      puts "this is where loops end"
     end
 
     puts "help! im melting"
