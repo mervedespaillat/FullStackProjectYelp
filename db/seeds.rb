@@ -16,8 +16,8 @@
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('shops')
-    ApplicationRecord.connection.reset_pk_sequence!
-    ('reviews')
+    # ApplicationRecord.connection.reset_pk_sequence!
+    # ('reviews')
   
     puts "Creating users..."
 
