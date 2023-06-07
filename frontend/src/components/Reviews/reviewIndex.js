@@ -11,7 +11,7 @@ const ReviewIndex = () => {
 
   useEffect(() => {
     dispatch(fetchReviews(shopId));
-  }, []);
+  }, [shopId]);
 
   const listedReviews = reviews.map((review) => (
     <ReviewIndexItem review={review} />

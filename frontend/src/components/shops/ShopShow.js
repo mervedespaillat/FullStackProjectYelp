@@ -42,7 +42,7 @@ const ShopShow = () => {
 
   const handleClick = (e) => {
     e.preventDefault()
-    history.push("/review");
+    history.push(`/shops/${shopId}/review`);
   };
 
   return (
@@ -170,14 +170,14 @@ const ShopShow = () => {
                 <hr></hr>
                 <li className="card-phoneNumber">{phoneNumber}</li>
               </ul>
-              <ul>
+              {/* <ul>
                 {reviews.map((review) => (
                   <li key={review.id}>{review.body}</li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             {/* <ReviewForm></ReviewForm> */}
-            {/* <ReviewIndexItem></ReviewIndexItem> */}
+            <ReviewIndex></ReviewIndex>
           </div>
         </div>
       </div>

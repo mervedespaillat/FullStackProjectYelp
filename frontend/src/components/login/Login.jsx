@@ -44,7 +44,7 @@ const LoginForm = () => {
   const handleDemoUser = (e) => {
     e.preventDefault()
     return dispatch(sessionActions.login({
-      email: "merve@merve.com",
+      email: "demo@demo.com",
       password: '123456'
     }))
   }

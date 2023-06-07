@@ -48,10 +48,11 @@ export const getReviewsByShopId = (shopId) => (state) => {
 export const fetchReviews = (shopId) => async (dispatch) => {
   const response = await fetch(`/api/shops/${shopId}/reviews`);
   if (response.ok) {
-    const reviews = await response.json();
-    dispatch(receiveReviews(reviews));
+    const data = await response.json();
+    dispatch(receiveReviews(data));
   }
 };
+
 export const fetchReview = (reviewId) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${reviewId}`);
   if (response.ok) {
@@ -61,7 +62,6 @@ export const fetchReview = (reviewId) => async (dispatch) => {
 };
 
 export const createReview = (review) => async (dispatch) => {
-
   const { body, rating, shopId } = review;
 
   const response = await csrfFetch(`/api/reviews`, {
@@ -76,8 +76,10 @@ export const createReview = (review) => async (dispatch) => {
     dispatch(receiveReview(reviewObj));
   }
   else{
+    throw response 
     const data = await response.json()
   }
+  return response
 };
 
 export const editReview = (review) => async (dispatch) => {
@@ -93,12 +95,14 @@ export const editReview = (review) => async (dispatch) => {
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {
+  
   const response = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
   });
+  
   dispatch(removeReview(reviewId));
 };
 

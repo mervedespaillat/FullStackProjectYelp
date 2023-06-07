@@ -1,0 +1,39 @@
+
+
+.form-header{
+    display: inline;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.form-content{
+border: 2px solid black;
+}
+
+.review-form-container{
+    display: flex;
+    justify-self: center;
+    background-color: aqua;
+} 
+
+.review-form{
+    border: 2px solid black;
+}
+
+.container {
+    display: flex;
+  }
+  
+  .content {
+    flex-grow: 1; /* Take up remaining space */
+  }
+  
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /* Set the height to occupy the full viewport height */
+    background-color: #f1f1f1;
+  }
+  
