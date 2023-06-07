@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "./navigation.css";
 import { useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
+import SearchBar from "../../components/SearchBar/SearchBar.js"
 
 const Navigation = () => {
   const sessionUser = useSelector((state) => state.session.user); // bu get post ile ayni sey mi
@@ -56,6 +57,7 @@ const Navigation = () => {
     <>
       <nav className={`navbar ${isShopPage ? "navbar-white" : ""}`}>
         <div className="logo">
+          
           <a href="/" exact>
             <p
               className={
@@ -68,6 +70,9 @@ const Navigation = () => {
             </p>
             <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
           </a>
+          <div className="search-items">
+          <input type="search" className="search-box" placeholder="name of the shop"></input><span><i class="fa-solid fa-magnifying-glass"></i></span>
+          </div>
         </div>
         <div className="links">
           <ul>
