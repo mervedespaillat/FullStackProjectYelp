@@ -16,8 +16,8 @@
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('shops')
-    # ApplicationRecord.connection.reset_pk_sequence!
-    # ('reviews')
+    ApplicationRecord.connection.reset_pk_sequence!
+    ('reviews')
   
     puts "Creating users..."
 
@@ -181,12 +181,19 @@
 
     puts "aws"
 
-    Shop.all.each_with_index do |shop, index|
-      unless shop.photo.attached?
-        file = URI.open("https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg")
-        shop.photo.attach(io: file, filename: "shop#{index + 1}.jpg")
+      shop_photo = []
+
+      n_time = Shop.all.length
+
+      n_time.times do |index|
+        url = "https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"
+        filename = "shop#{index + 1}.jpg"
+        shop_photo << {io: URI.open(url), filename: filename}
       end
-        
+
+
+    Shop.all.each_with_index do |shop, index|
+      shop.photo.attach(shop_photo[index])
     end
 
     puts "help! im melting"

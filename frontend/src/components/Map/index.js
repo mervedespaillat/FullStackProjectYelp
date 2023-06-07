@@ -23,7 +23,7 @@ export function MyMapComponent({ center, zoom }) {
     });
   });
 
-  return <div ref={ref} id="map" />;
+  return <div ref={ref} className="map" />;
 }
 
 export default MeltMapWrapper
