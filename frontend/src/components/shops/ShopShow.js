@@ -8,11 +8,16 @@ import { getReviewsByShopId } from "../../store/reviews";
 import ReviewForm from "../Reviews/reviewForm";
 import ReviewIndex from "../Reviews/reviewIndex";
 import ReviewIndexItem from "../Reviews/reviewIndexItem";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 const ShopShow = () => {
   const dispatch = useDispatch();
+  const history = useHistory()
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
+
 
   useEffect(() => {
     dispatch(fetchShop(shopId));
@@ -34,6 +39,11 @@ const ShopShow = () => {
     openingTime,
     closingTime,
   } = shop;
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    history.push("/review");
+  };
 
   return (
     <>
@@ -84,7 +94,7 @@ const ShopShow = () => {
           </div>
         </div>
 
-        <button className="review-btn">
+        <button className="review-btn" onClick={handleClick}>
           <i class="fa-regular fa-star"></i> Write a review
         </button>
       </div>

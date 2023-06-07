@@ -183,13 +183,18 @@
 
       shop_photo = []
 
+      puts "emtyp array"
+
       n_time = Shop.all.length
 
       n_time.times do |index|
         url = "https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"
+        puts "this is before line 93"
         filename = "shop#{index + 1}.jpg"
         shop_photo << {io: URI.open(url), filename: filename}
+        puts "this is line 95"
       end
+
 
 
     Shop.all.each_with_index do |shop, index|

@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   /* vertical-align: baseline;  */
-  width: 300px;
-
+  width: 450px;
+  height: 300px;
 }
 
 .styleCardContent {
@@ -17,9 +17,10 @@
 .styleImage img {
   background-color: lightgray;
   border-radius: 8px 8px 0 0;
-  max-height: 140px;
+  max-height: 150px;
   overflow: hidden;
   width: 100%;
+  object-fit: cover;
 }
 
 .styleCardTitle {
