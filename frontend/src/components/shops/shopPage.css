@@ -201,7 +201,7 @@ color: white;
   /* Style for the left side of the middle page */
   .show-left {
     width: 50%;
-    height: 50vh;
+    height: 100%;
     display: flex;
     align-items: center;
     flex: 1
@@ -220,13 +220,6 @@ color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  /* Style for the show card */
-  .show-card {
-    width: 100%;
-    padding: 20px;
-    background-color: #f0f0f0;
   }
   
   /* Style for the review container */
@@ -421,10 +414,46 @@ color: white;
     border-color: #ebebeb;
     color: #253b56;
     background-color: #ffffff;
-    align-items: flex-end;
+    align-items: center;
     display: flex;
     width: 3px;
-    height: 30%;
-    width: 45%;
-    margin-right: 10px;
+    height: 200px;
+    width: 400px;
+    justify-content: center;
+    margin-right: 133px;
+  }
+
+
+  .amenities{
+    border: 2px solid red;
+    height: 100px;
+    width: 700px;
+    margin-top: 30px;
+  }
+  .about-biz{
+    border: 2px solid red;
+    height: 200px;
+    width: 700px;
+    margin-top: 10px;
+  }
+
+  .review-box{
+    border: 2px solid red;
+    height: 200px;
+    width: 700px;
+    margin-top: 10px;
+  }
+
+  .biz-header{
+    justify-content: space-between;
+    flex-direction: row;
+    display: inherit;
+    align-items: center;
+  }
+  .address-map{
+    justify-content: space-between;
+    flex-direction: row;
+    display: inherit;
+    align-items: center;
+    margin-top: 60px
   }
