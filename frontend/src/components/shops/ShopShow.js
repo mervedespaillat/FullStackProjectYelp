@@ -19,13 +19,15 @@ const ShopShow = () => {
   const shop = useSelector(getShop(shopId));
   const reviews = useSelector(getReviewsByShopId(shopId));
 
-  const [ rating, setRating] = useState(shop.rating)
+  const [ rating, setRating] = useState(1)
   
   const total_review = reviews.length
   
-  // useEffect(()=>{
-  //   dispatch(fetchReviews(shopId))
-  // },[])
+  useEffect(()=>{
+    if(shop){
+      setRating(shop.rating)
+    }
+  },[shop])
   
   console.log(reviews.length)
 

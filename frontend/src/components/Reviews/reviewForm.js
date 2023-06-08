@@ -116,7 +116,7 @@ const ReviewForm = () => {
           <input
             className="post-review"
             type="submit"
-            value="Post Review"
+            value={buttonText}
             onClick={handleSubmit}
           />
         </div>
