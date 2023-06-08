@@ -13,3 +13,4 @@ class CreateUsers < ActiveRecord::Migration[7.0]
     add_index :users, :session_token, unique: true
   end
 end
+m

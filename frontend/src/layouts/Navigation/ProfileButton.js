@@ -38,7 +38,7 @@ const ProfileButton = ({ user }) => {
         {showMenu && (
           <div className="dropdown-content">
             <ul className="profile-dropdown">
-              <li>
+              <li className="about-me">
                 <a href="#">
                   <i className="fa-solid fa-ice-cream" style={{ color: "red" }}>
                     {" "}
@@ -46,10 +46,10 @@ const ProfileButton = ({ user }) => {
                   </i>
                 </a>
               </li>
-              <li>
-                <button onClick={logout}>
-                  <i className="fa-sharp fa-regular fa-arrow-right-from-bracket"></i>
-                  Log Out
+              <li className="logout">
+                <button onClick={logout} className="logout-btn"> 
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                   Log Out
                 </button>
               </li>
             </ul>

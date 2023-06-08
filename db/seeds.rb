@@ -8,7 +8,7 @@
 
     require "open-uri"
     
-    puts "Destroying tables..."
+    puts "Destroying tables..." 
     Review.destroy_all
     User.destroy_all
     Shop.destroy_all 
@@ -182,13 +182,9 @@
 
       shop_photo = []
 
-      puts "emtyp array"
-
       n_time = Shop.all.length
 
-      puts n_time
-
-     6.times do |index|
+     n_time.times do |index|
         url = "https://melt-seeds.s3.amazonaws.com/shop#{index + 1}.jpg"
         # puts "this is before line 93"
         filename = "shop#{index + 1}.jpg"
@@ -196,6 +192,15 @@
         shop_photo << {io: URI.open(url), filename: filename}
         # puts shop_photo
         Shop.find(index + 1).photo.attach(io: URI.open(url), filename: filename)      
+      end
+
+      user_photo = []
+
+      6.times do |index|
+        url = "https://melt-seeds.s3.amazonaws.com/user#{index+1}.jpeg"
+        filename = "user#{index+1}.jpeg"
+        user_photo << {io: URI.open(url), filename: filename}
+        User.find(index + 1).photo.attach(io: URI.open(url), filename:filename)
       end
 
 

@@ -17,7 +17,7 @@ const ShopShow = () => {
   const history = useHistory()
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
-
+  
 
   useEffect(() => {
     dispatch(fetchShop(shopId));
@@ -38,6 +38,8 @@ const ShopShow = () => {
     phoneNumber,
     openingTime,
     closingTime,
+    photo,
+    longitude
   } = shop;
 
   const handleClick = (e) => {
@@ -50,7 +52,7 @@ const ShopShow = () => {
       <div className="image-cover">
         <img
           className="shop-pic"
-          src="https://images.unsplash.com/photo-1627373717559-17b8b84b2c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+          src={photo}
           alt="shop picture"
         ></img>
         <div className="shop-image-overlay">
@@ -111,7 +113,7 @@ const ShopShow = () => {
               </div>
               <div className="middle-section">
                 <div className="map-section">
-                  <MeltMapWrapper className="map-style" />
+                  <MeltMapWrapper shopId={shopId}className="map-style" />
                 </div>
                 <div className="address-section">
                   <p>{address}</p>
