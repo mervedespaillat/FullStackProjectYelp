@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import {
   createReview,
   editReview,
@@ -7,13 +10,14 @@ import {
   getReview,
 } from "../../store/reviews";
 import { useEffect, useState } from "react";
-import "./reviewForm"
+import "./reviewForm";
+import RatingStars from "../RatingStars/ratingStars";
 // I need to figure it out how im gonna get the review id
 
 const ReviewForm = () => {
   const dispatch = useDispatch();
   const { reviewId } = useParams();
-  const history  = useHistory()
+  const history = useHistory();
 
   let review = useSelector(getReview(reviewId));
   review ||= {};
@@ -25,11 +29,10 @@ const ReviewForm = () => {
   useEffect(() => {
     if (review.id) {
       dispatch(fetchReview(review.id));
-
     }
   }, [review]);
 
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,14 +45,14 @@ const ReviewForm = () => {
       rating: rating,
     };
     return dispatch(requireFunction(formData))
-    .then(() => {history.push(`/shops/${shopId}`)})
-    .catch(async (response) => {
-        const data = await response.json()
-        setErrors(data.errors)
-    });
+      .then(() => {
+        history.push(`/shops/${shopId}`);
+      })
+      .catch(async (response) => {
+        const data = await response.json();
+        setErrors(data.errors);
+      });
   };
-
-
 
   const handleBody = (e) => {
     setBody(e.target.value);
@@ -59,7 +62,7 @@ const ReviewForm = () => {
     setRating(e.target.value);
   };
 
-  const buttonText = review.id ? "Edit Report" : "Create Report";
+  const buttonText = review.id ? "Edit Review" : "Create Review";
 
   return (
     <>
@@ -68,19 +71,27 @@ const ReviewForm = () => {
           <div className="form-content">
             <div className="form-header">
               <div className="shop-name-header"> Shop name as a a tag</div>
-              <div  className="guidelines">
-                Read our review guidelines
-              </div>
+              <div className="guidelines">Read our review guidelines</div>
             </div>
             <div className="review-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-holder">
-                  <div className="rating-button"> put here stars
-                  <input type="text" placeholder="rating" onChange={handleRating}></input></div>
+                  <div className="rating-button">
+                    {" "}
+                    put here stars
+                    <input
+                      type="text"
+                      placeholder="rating"
+                      onChange={handleRating}
+                    ></input>
+                    <RatingStars rating={rating} setRating={setRating} />
+                    {console.log("Ratig =>", rating)}
+                  </div>
                 </div>
-                <p className="explanation">A few things to consider in your review</p>
+                <p className="explanation">
+                  A few things to consider in your review
+                </p>
                 <label>
-                  
                   <input
                     className="review-body"
                     type="text"
@@ -92,18 +103,22 @@ const ReviewForm = () => {
                   ></input>
                 </label>
                 <ul>
-                {errors.map((error, i)=>{
-                    return <li key={i}>{error}</li>
-                })}
+                  {errors.map((error, i) => {
+                    return <li key={i}>{error}</li>;
+                  })}
                 </ul>
               </form>
             </div>
           </div>
           <div className="photo-load"></div>
-
         </div>
         <div className="post-btn">
-        <input className="post-review" type="submit" value="Post Review"  onClick={handleSubmit}/>
+          <input
+            className="post-review"
+            type="submit"
+            value="Post Review"
+            onClick={handleSubmit}
+          />
         </div>
       </div>
       <div className="review-main"></div>

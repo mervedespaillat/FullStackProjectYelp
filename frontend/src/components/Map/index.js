@@ -4,9 +4,11 @@ import './map.css'
 
 // default
 const MeltMapWrapper=()=> {
+
+  const key = process.env.GOOGLE_MAPS_API_KEY
     return (
         <div className="map">
-       <Wrapper apiKey={"AIzaSyAFxMaLXHUS9fPBdsU_8mT25fi_mdLkYxo"}>
+       <Wrapper apiKey={key}>
          <MyMapComponent center={{ lat: 40.932690, lng: 29.126810 }} zoom={10} />
        </Wrapper>
          </div>

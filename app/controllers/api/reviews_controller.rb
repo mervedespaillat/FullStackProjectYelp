@@ -8,9 +8,21 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show
+        @shop = Shop.find(params[:shop_id])
         @review = Review.find(params[:id])
+        user_id = 1
+        shop_id = params[:shop_id]
+        exist_review = Review.find_by(user_id: user_id, shop_id: shop_id )
+        if exist_review
+            @review.update(isItAReview: true)
+        else
+            @review.update(isItAReview: false)
+
+        end 
         render :show
     end
+
+
 
     def index
         @shop = Shop.find(params[:shop_id])
@@ -24,13 +36,15 @@ class Api::ReviewsController < ApplicationController
         render :index
     end
 
+    # isItAReview: bool
 
     def create 
         
         @review = Review.new(review_params)
         @review.user_id = current_user.id
+        
         if @review.save
-            # @review.shop.update_avg_rating
+            @review.shop.update_avg_rating
             render :show
         else
             render json: {errors: @review.errors.full_messages} , status: :unprocessable_entity
