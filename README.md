@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Melt - Where You Can Find Your Dream Ice Cream Shop 
 
-Things you may want to cover:
+## introduction
 
-* Ruby version
+Melt is a Yelp-like clone project that aims to provide a platform for users to discover and review ice cream shops. 
+Whether you're a dessert enthusiast or an ice cream connoisseur, Melt is the go-to app for finding the best ice cream shops in your area.
 
-* System dependencies
 
-* Configuration
+## Technologies Used
 
-* Database creation
+- Front-end: HTML, CSS, JavaScript, React.js
+- Back-end: Ruby on Rails
+- Database: PostgreSQL
+- Map Integration: Google Maps API 
+- Asset Storage: Amazon S3
+- Hosting: Render
 
-* Database initialization
+# MVPs
 
-* How to run the test suite
+# Reviews
 
-* Services (job queues, cache servers, search engines, etc.)
+The review functionality in Melt allows users to share their experiences and opinions about ice cream shops. Users can write a single review for each ice cream shop. Once a review is submitted, users have the ability to edit their existing review if they wish to update their feedback or provide additional insights. 
 
-* Deployment instructions
+# Rating
 
-* ...
+The rating functionality in Melt allows users to leave a rating for each ice cream shop based on their experience. Users can hover over the rating stars to preview their selection before clicking to submit their rating. Additionally, the app automatically updates the ice cream shop's overall rating to reflect the new feedback. This ensures that users have access to the most accurate and up-to-date shop ratings possible.
+

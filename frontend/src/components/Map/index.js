@@ -5,7 +5,8 @@ import './map.css'
 // default
 const MeltMapWrapper=()=> {
 
-  const key = process.env.GOOGLE_MAPS_API_KEY
+  const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
     return (
         <div className="map">
        <Wrapper apiKey={key}>
