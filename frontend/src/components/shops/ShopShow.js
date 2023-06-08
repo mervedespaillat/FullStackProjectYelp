@@ -1,16 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getShop, fetchShop } from "../../store/shops";
 import "./shopPage.css";
 import MeltMapWrapper from "../Map";
 import { getReviewsByShopId } from "../../store/reviews";
-import ReviewForm from "../Reviews/reviewForm";
 import ReviewIndex from "../Reviews/reviewIndex";
-import ReviewIndexItem from "../Reviews/reviewIndexItem";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import ReviewButton from "../Reviews/reviewButton";
+import RatingStars from "../RatingStars/ratingStars";
+
 
 
 const ShopShow = () => {
@@ -18,12 +17,22 @@ const ShopShow = () => {
   const history = useHistory()
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
+  const reviews = useSelector(getReviewsByShopId(shopId));
+
+  const [ rating, setRating] = useState(shop.rating)
   
+  const total_review = reviews.length
+  
+  // useEffect(()=>{
+  //   dispatch(fetchReviews(shopId))
+  // },[])
+  
+  console.log(reviews.length)
 
   useEffect(() => {
     dispatch(fetchShop(shopId));
   }, [shopId, dispatch]);
-  const reviews = useSelector(getReviewsByShopId(shopId));
+  
 
   if (!shop) {
     return <div>Loading....</div>;
@@ -81,8 +90,10 @@ const ShopShow = () => {
                   className="ice-cream-negative"
                   class="fa-solid fa-ice-cream"
                 ></i>
+                <RatingStars rating={rating} setRating={setRating} readOnly={true}></RatingStars>
               </li>
-              <li className="review-count">{reviews.length} reviews</li>
+              <li className="review-count">{shop.rating} {total_review} reviews</li>
+              
             </ul>
           </div>
           <div className="shop-content">
