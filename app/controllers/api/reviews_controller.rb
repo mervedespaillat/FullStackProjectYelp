@@ -7,6 +7,11 @@ class Api::ReviewsController < ApplicationController
         render :new
     end
 
+    def show
+        @review = Review.find(params[:id])
+        render :show
+    end
+
     def index
         @shop = Shop.find(params[:shop_id])
         @reviews = @shop.reviews 
@@ -21,6 +26,7 @@ class Api::ReviewsController < ApplicationController
 
 
     def create 
+        
         @review = Review.new(review_params)
         @review.user_id = current_user.id
         if @review.save

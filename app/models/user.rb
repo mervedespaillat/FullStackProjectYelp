@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_one_attached :photo
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(email, password)

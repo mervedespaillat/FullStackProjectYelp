@@ -25,10 +25,12 @@ const ReviewForm = () => {
   useEffect(() => {
     if (review.id) {
       dispatch(fetchReview(review.id));
+
     }
   }, [review]);
 
   const [errors, setErrors] = useState([])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const requireFunction = review.id ? editReview : createReview;
@@ -66,14 +68,15 @@ const ReviewForm = () => {
           <div className="form-content">
             <div className="form-header">
               <div className="shop-name-header"> Shop name as a a tag</div>
-              <div style={{ color: "rgba(2,122,151,1)" }}>
+              <div  className="guidelines">
                 Read our review guidelines
               </div>
             </div>
             <div className="review-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-holder">
-                  <div className="rating-button"> put here stars</div>
+                  <div className="rating-button"> put here stars
+                  <input type="text" placeholder="rating" onChange={handleRating}></input></div>
                 </div>
                 <p className="explanation">A few things to consider in your review</p>
                 <label>
@@ -83,7 +86,9 @@ const ReviewForm = () => {
                     type="text"
                     onChange={handleBody}
                     value={body}
-                    placeholder="Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the strawberry ice cream, and wow... there are no words. A classic ice cream done right.There is about million flavor available, you really can't go wrong. Not mush else to say besides go see for yourself! You won't be disappointed"
+                    placeholder="Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in.
+                     The definition of a hole-in-the-wall. I got the strawberry ice cream, and wow... there are no words.
+                      A classic ice cream done right.There is about million flavor available, you really can't go wrong. Not mush else to say besides go see for yourself! You won't be disappointed"
                   ></input>
                 </label>
                 <ul>
@@ -91,11 +96,14 @@ const ReviewForm = () => {
                     return <li key={i}>{error}</li>
                 })}
                 </ul>
-                <div className="photo-load"></div>
-                <input className="post-review" type="submit" value="Post Review" />
               </form>
             </div>
           </div>
+          <div className="photo-load"></div>
+
+        </div>
+        <div className="post-btn">
+        <input className="post-review" type="submit" value="Post Review"  onClick={handleSubmit}/>
         </div>
       </div>
       <div className="review-main"></div>

@@ -20,7 +20,7 @@ const ReviewIndex = () => {
   return (
     <>
       <ul>{listedReviews}</ul>
-      <Link to="/reviews/new">Write a Review</Link>
+      {/* <Link to="/reviews/new">Write a Review</Link> */}
     </>
   );
 };
