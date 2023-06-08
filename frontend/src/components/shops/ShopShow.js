@@ -10,6 +10,7 @@ import ReviewIndex from "../Reviews/reviewIndex";
 import ReviewIndexItem from "../Reviews/reviewIndexItem";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import ReviewButton from "../Reviews/reviewButton";
 
 
 const ShopShow = () => {
@@ -46,7 +47,7 @@ const ShopShow = () => {
     e.preventDefault()
     history.push(`/shops/${shopId}/review`);
   };
-
+  
   return (
     <>
       <div className="image-cover">
@@ -104,6 +105,7 @@ const ShopShow = () => {
         <div className="middle-container">
           <div className="show-split show-left">
             <div className="map-show-hour">
+              <div className="biz-header">
               <div className="item">
                 <h1>Location & Hours</h1>
               </div>
@@ -111,6 +113,8 @@ const ShopShow = () => {
                 <span>Suggest an edit</span>
                 <i class="fa-solid fa-pencil"></i>
               </div>
+              </div>
+              <div className="address-map">
               <div className="middle-section">
                 <div className="map-section">
                   <MeltMapWrapper shopId={shopId}className="map-style" />
@@ -122,6 +126,8 @@ const ShopShow = () => {
                   </p>
                   <p>{state}</p>
                 </div>
+                </div>
+                <div className="time-box">
                 <div className="day-hours">
                   <p>
                     {" "}
@@ -152,8 +158,12 @@ const ShopShow = () => {
                     Sun {openingTime}:00 AM - {closingTime}:00 PM
                   </p>
                 </div>
+                </div>
               </div>
             </div>
+            <div className="amenities"></div>
+            <div className="about-biz"></div>
+            <div className="review-box"></div>
           </div>
           <div className="show-split show-right">
             <div className="show-card">
