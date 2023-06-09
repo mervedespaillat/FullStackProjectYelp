@@ -4,11 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getShop, fetchShop } from "../../store/shops";
 import "./shopPage.css";
 import MeltMapWrapper from "../Map";
-import { getReviewsByShopId } from "../../store/reviews";
+import { fetchReviews, getReviewsByShopId } from "../../store/reviews";
 import ReviewIndex from "../Reviews/reviewIndex";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import RatingStars from "../RatingStars/ratingStars";
+import { getReviews } from "../../store/reviews";
+import Highlights from "../Highlights/highlights";
+import AboutBiz from "../AboutBiz/AboutBiz";
 
 
 
@@ -17,11 +20,19 @@ const ShopShow = () => {
   const history = useHistory()
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
-  const reviews = useSelector(getReviewsByShopId(shopId));
+ 
+  const reviews = useSelector(getReviews);
 
-  const [ rating, setRating] = useState(1)
+
+  useEffect(()=>{
+    dispatch(fetchReviews(shopId))
+  },[shopId])
+ 
+
+  const [ rating, setRating] = useState(0)
   
   const total_review = reviews.length
+
   
   useEffect(()=>{
     if(shop){
@@ -29,7 +40,6 @@ const ShopShow = () => {
     }
   },[shop])
   
-  console.log(reviews.length)
 
   useEffect(() => {
     dispatch(fetchShop(shopId));
@@ -72,26 +82,6 @@ const ShopShow = () => {
           <div className="img-rating">
             <ul className="rating-list">
               <li>
-                <i
-                  className="ice-cream-positive"
-                  class="fa-solid fa-ice-cream"
-                ></i>
-              </li>
-              <li>
-                <i class="fa-solid fa-ice-cream"></i>
-              </li>
-              <li>
-                {" "}
-                <i class="fa-solid fa-ice-cream"></i>
-              </li>
-              <li>
-                <i class="fa-solid fa-ice-cream"></i>
-              </li>
-              <li>
-                <i
-                  className="ice-cream-negative"
-                  class="fa-solid fa-ice-cream"
-                ></i>
                 <RatingStars rating={rating} setRating={setRating} readOnly={true}></RatingStars>
               </li>
               <li className="review-count">{shop.rating} {total_review} reviews</li>
@@ -130,7 +120,7 @@ const ShopShow = () => {
               <div className="address-map">
               <div className="middle-section">
                 <div className="map-section">
-                  <MeltMapWrapper shopId={shopId}className="map-style" />
+                <MeltMapWrapper className="map-style" />
                 </div>
                 <div className="address-section">
                   <p>{address}</p>
@@ -140,7 +130,6 @@ const ShopShow = () => {
                   <p>{state}</p>
                 </div>
                 </div>
-                <div className="time-box">
                 <div className="day-hours">
                   <p>
                     {" "}
@@ -171,12 +160,17 @@ const ShopShow = () => {
                     Sun {openingTime}:00 AM - {closingTime}:00 PM
                   </p>
                 </div>
-                </div>
+                
               </div>
             </div>
-            <div className="amenities"></div>
-            <div className="about-biz"></div>
-            <div className="review-box"></div>
+            <div className="amenities">
+              <h1>Highlights from the Business</h1>
+              <Highlights/>
+            </div>
+            <div className="about-biz"><AboutBiz/></div>
+            {/* <div className="review-box"> */}
+            <ReviewIndex></ReviewIndex>
+            {/* </div> */}
           </div>
           <div className="show-split show-right">
             <div className="show-card">
@@ -195,14 +189,9 @@ const ShopShow = () => {
                 <hr></hr>
                 <li className="card-phoneNumber">{phoneNumber}</li>
               </ul>
-              {/* <ul>
-                {reviews.map((review) => (
-                  <li key={review.id}>{review.body}</li>
-                ))}
-              </ul> */}
             </div>
-            {/* <ReviewForm></ReviewForm> */}
-            <ReviewIndex></ReviewIndex>
+              
+            
           </div>
         </div>
       </div>

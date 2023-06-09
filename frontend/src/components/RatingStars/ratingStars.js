@@ -5,11 +5,11 @@ const RatingStars = ({ rating, setRating, readOnly }) => {
   const [hoverRating, setHoverRating] = useState(0);
 
   const colors = {
-    1: "#F44336", //Red
-    2: "#FF9800", //Orange
-    3: "#FFEB3B", //Yellow
-    4: "#4CAF50", //Green
-    5: "#2196F3", //Blue
+    1: "#fadadd", //Red
+    2: "#ffc1cc", //Orange
+    3: "#ffbcd9", //Yellow
+    4: "#ff69b4", //Green
+    5: "#ff1493", //Blue
   };
 
   const onMouseEnter = (index) => {
@@ -48,7 +48,8 @@ const RatingStars = ({ rating, setRating, readOnly }) => {
           onMouseLeave={onMouseLeave}
           onClick={() => onSaveRating(index)}
         >
-          ★
+        <i class="fa-solid fa-ice-cream"></i>
+
         </span>
       ))}
     </div>

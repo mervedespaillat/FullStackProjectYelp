@@ -38,6 +38,9 @@ const Home = () => {
         <Route exact path="/shops/:shopId/review">
           <ReviewForm/>
         </Route>
+        <Route exact path="/shops/:shopId/:reviewId/edit">
+          <ReviewForm/> ///Change this edit
+        </Route>
       </Switch>
       <Footer></Footer>
     </div>
