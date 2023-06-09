@@ -23,10 +23,9 @@ const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Check if the current location matches the shop page
     setIsShopPage(location.pathname.includes("/shops"));
   }, [location]);
-  //   const handleClick =
+ 
 
   let sessionLinks;
   if (sessionUser) {
@@ -51,7 +50,6 @@ const Navigation = () => {
       </>
     );
   }
-  // <div className="search-bar">{/* <SearchBar></SearchBar> */}</div>
 
   return (
     <>
@@ -71,7 +69,10 @@ const Navigation = () => {
             <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
           </a>
           <div className="search-items">
-          <input type="search" className="search-box" placeholder="name of the shop"></input><span><i class="fa-solid fa-magnifying-glass"></i></span>
+            <div className="search-style">
+          <input type="search" className="search-box" placeholder="name of the shop"></input><div><i class="fa-solid fa-magnifying-glass"></i></div>
+
+            </div>
           </div>
         </div>
         <div className="links">

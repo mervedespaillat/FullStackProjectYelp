@@ -233,9 +233,10 @@ color: white;
     align-items: center;
   }
   .post-review{
-    align-self: start;
+    display: flex;
+    align-self: center;
     text-align: center;
-    margin-left:-4px;
+    margin-left:580px;
     margin-top:0px;
     font-weight: 500;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;

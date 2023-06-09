@@ -77,7 +77,7 @@ const ShopIndex = () => {
           </div>
           <div className="image"></div>
           <div className="split right">
-            <MeltMapIndexWrapper className="map"></MeltMapIndexWrapper>
+            <MeltMapIndexWrapper className="mapIndex"></MeltMapIndexWrapper>
           </div>
         </div>
       </div>

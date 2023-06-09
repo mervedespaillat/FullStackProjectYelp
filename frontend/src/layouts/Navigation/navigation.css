@@ -20,6 +20,10 @@
 .navbar li {
     margin: 20px;
 }
+.logo{
+    display: flex;
+    align-items: center;
+}
 
 .logo a {
 color: #e0101a;
@@ -136,16 +140,24 @@ margin: 0;
 .signup:hover {
    background-color:  rgb(233, 0, 0);
 }
+.search-style{
+    display: flex;
+    align-items: center;
+}
+.search-style input{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
 
 .search-items{
-    display: inline;
+    display: flex;
+    margin-left: 180px;
 }
 .search-box{
     margin-left: 200px;
-    margin-top: 0px;
+    margin-top: px;
     padding-top: 10px;
     text-align: center;
-    padding: 13px 100px;
+    padding: 13px 200px;
     border-radius: 4px 0 0 4px;
     cursor: text;
     position: relative ;

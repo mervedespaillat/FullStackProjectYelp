@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import "./reviewForm";
 import RatingStars from "../RatingStars/ratingStars";
+import { getShop } from "../../store/shops";
 // I need to figure it out how im gonna get the review id
 
 const ReviewForm = () => {
@@ -25,7 +26,8 @@ const ReviewForm = () => {
   const [body, setBody] = useState(review.body);
   const [rating, setRating] = useState(review.rating);
   const { shopId } = useParams();
-
+  const shop = useSelector(getShop(shopId)) 
+  const shopName = shop.name
   useEffect(() => {
     if (review.id) {
       dispatch(fetchReview(review.id));
@@ -70,20 +72,14 @@ const ReviewForm = () => {
         <div className="review-form-container">
           <div className="form-content">
             <div className="form-header">
-              <div className="shop-name-header"> Shop name as a a tag</div>
+              <div className="shop-name-header"> {shopName}</div>
               <div className="guidelines">Read our review guidelines</div>
             </div>
             <div className="review-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-holder">
-                  <div className="rating-button">
-                    <input
-                      type="text"
-                      placeholder="rating"
-                      onChange={handleRating}
-                    ></input>
-                    <RatingStars rating={rating} setRating={setRating} />
-                    {console.log("Ratig =>", rating)}
+                  <div className="rating-button-o">
+                    <RatingStars rating={rating} setRating={setRating} className="rating-on-form" />
                   </div>
                 </div>
                 <p className="explanation">
