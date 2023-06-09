@@ -27,3 +27,46 @@ The review functionality in Melt allows users to share their experiences and opi
 
 The rating functionality in Melt allows users to leave a rating for each ice cream shop based on their experience. Users can hover over the rating stars to preview their selection before clicking to submit their rating. Additionally, the app automatically updates the ice cream shop's overall rating to reflect the new feedback. This ensures that users have access to the most accurate and up-to-date shop ratings possible.
 
+
+```jsx
+import React, { useState } from 'react';
+
+const Rating = ({ readOnly }) => {
+  const [hoverRating, setHoverRating] = useState(0);
+  const [rating, setRating] = useState(0);
+
+  const onMouseEnter = (index) => {
+    if (!readOnly) {
+      setHoverRating(index);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (!readOnly) {
+      setHoverRating(0);
+    }
+  };
+
+  const onSaveRating = (index) => {
+    if (!readOnly && setRating) {
+      setRating(index);
+    }
+  };
+
+  return (
+    <div className="rating">
+      {[1, 2, 3, 4, 5].map((index) => (
+        <span
+          key={index}
+          className={`star ${index <= (hoverRating || rating) ? 'active' : ''}`}
+          onMouseEnter={() => onMouseEnter(index)}
+          onMouseLeave={onMouseLeave}
+          onClick={() => onSaveRating(index)}
+        >
+          ★
+        </span>
+      ))}
+    </div>
+  );
+};
+```
