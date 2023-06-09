@@ -68,7 +68,6 @@ const ShopIndex = () => {
                             until {shop.closingTime}.00PM
                           </span>
                         </p>
-                        <p>"Best ice cream in town!"</p>
                       </li>
                     </ul>
                 </div>

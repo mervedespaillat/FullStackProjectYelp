@@ -32,6 +32,7 @@ const ReviewIndexItem = ({review}) => {
         <p>{date}</p></div>
         <div className='rating-context'>
             {review.body}</div>
+            <div className='delete-btn-review'><button onClick={handleClick}>Delete</button></div>
         <div className='icon-container'>
             <ul className="comment-icons">
         <li><img src="https://s3-media0.fl.yelpcdn.com/assets/public/24x24_helpful_bulb_v2.yji-927d56e36e3a11c12e58.svg" alt=""></img> </li>
