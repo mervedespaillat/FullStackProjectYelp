@@ -19,7 +19,10 @@ border: 2px solid black;
 .review-form{
     border: 2px solid black;
 }
+.rating-button-on {
+  margin-top: 20px;
 
+}
 .container {
     display: flex;
   }

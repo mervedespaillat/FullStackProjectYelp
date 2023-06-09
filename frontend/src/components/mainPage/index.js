@@ -75,25 +75,28 @@ const MainPage = () => {
           <h1 className="recently-added">Recently Added Shops</h1>
         <div className="card-container">
          {lastThreeShops.map((cardData, index) => (
-        <Card
+           <Card
           key={index}
+          shopId={cardData.id}
           shopName={<ShopIndexItem key={index} className="a" shop={cardData}>{cardData.name}</ShopIndexItem>}
           address={cardData.address}
           city={cardData.city}
-          image="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
+          image={cardData.photo}
           className="card"
         ></Card> 
        ))} 
        </div>
-       <div className="review-card">
+       <div className="card-container">
         {lastThreeReviews.map((reviewData, index)=>(
+          
           <Card
           key={index}
-          shopName={"username"}
+         
+          shopName={reviewData.shopId}
           address={reviewData.rating}
           city={reviewData.body}
           image="https://images.unsplash.com/photo-1516043827470-d52c543c438f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
-          ></Card>
+          className="card"></Card>
         ))}
        </div>
 

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import { getShop, getShops } from "../../store/shops";
-// import'./mapIndex'
+import'./mapIndex'
 
 // default
 const MeltMapIndexWrapper=()=> {
