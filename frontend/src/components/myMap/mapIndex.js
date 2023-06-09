@@ -1,30 +1,21 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { useEffect, useRef, useState } from "react";
-import './map.css'
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import { getShop, getShops } from "../../store/shops";
-
+// import'./mapIndex'
 
 // default
-const MeltMapWrapper=()=> {
+const MeltMapIndexWrapper=()=> {
 
-  const { shopId } = useParams();
-  console.log(shopId)
-  const shop = useSelector(getShop(shopId));
-  console.log(shop)
-  const lat = shop.latitude;
-  const lng = shop.longitude;
-  const center = { lat: lat, lng: lng };
-  const zoom = 10;
 
   const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
-
     return (
         <div className="map">
+    
        <Wrapper apiKey={key}>
-         <MyMapComponent center={center} zoom={13} />
+         <MyMapComponent center={{lat:40.73816681474568, lng:-73.99427720152842}} zoom={14} />
        </Wrapper>
          </div>
     )
@@ -41,7 +32,7 @@ export function MyMapComponent({ center, zoom }) {
     const marker = new window.google.maps.Marker({position: center, map: map})
   },[center, zoom]);
 
-  return <div ref={mapRef} className="map" />;
+  return <div ref={mapRef} className="myMap" />;
 }
 
-export default MeltMapWrapper
+export default MeltMapIndexWrapper

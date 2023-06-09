@@ -122,3 +122,8 @@ justify-content: flex-start;
   color: rgba(45, 46, 47, 1);
   text-align: left;
 }
+
+.myMap{
+  width: 100%;
+  height: 100%;
+}

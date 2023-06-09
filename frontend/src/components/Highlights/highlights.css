@@ -1,0 +1,24 @@
+
+.highlights li {
+    justify-content: space-between;
+    display: inline;
+    margin-right: 60px;
+    margin-top: 30px; 
+}
+.highlights img{
+    height:80px;
+    width: 80px;
+}
+
+.tag-for-highlights li{
+    display: inline;
+    margin-right: 40px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: rgb(45, 46, 47);
+    text-align: left;
+    user-select: none;
+}

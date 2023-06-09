@@ -1,5 +1,6 @@
-.start {
+.start i {
   font-size: 24px;
   margin: 0 5px;
   cursor: pointer;
+  border: 2px solid black;
 }
