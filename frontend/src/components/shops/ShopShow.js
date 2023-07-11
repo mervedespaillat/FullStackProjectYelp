@@ -6,34 +6,70 @@ import "./shopPage.css";
 import MeltMapWrapper from "../Map";
 import { fetchReviews, getReviewsByShopId } from "../../store/reviews";
 import ReviewIndex from "../Reviews/reviewIndex";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import RatingStars from "../RatingStars/ratingStars";
 import { getReviews } from "../../store/reviews";
 import Highlights from "../Highlights/highlights";
 import AboutBiz from "../AboutBiz/AboutBiz";
-
-
+import {Redirect} from "react-router-dom"
 
 const ShopShow = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
- 
-  const reviews = useSelector(getReviews);
 
+
+  const reviews = useSelector(getReviews);
+  let sessionUser = useSelector(state => state.session.user);
+  if (!sessionUser) {
+    sessionUser = {};
+  }
+  
+  const [ rating, setRating] = useState(0)
+  
+  const total_review = reviews.length
+ 
 
   useEffect(()=>{
     dispatch(fetchReviews(shopId))
   },[shopId])
- 
-
-  const [ rating, setRating] = useState(0)
-  
-  const total_review = reviews.length
 
   
+
+    
+const handleNew = e => {
+  e.preventDefault();
+  if (sessionUser && sessionUser.id) {
+    debugger
+      history.push(`/shops/${shopId}/review`)
+  } else {
+    debugger
+history.push("/login")  };
+}
+
+
+const handleUpdate = e => {
+  debugger
+  e.preventDefault();
+  history.push(`/shops/${shopId}/${userReviewId}/edit`)
+}
+
+  const userReview = reviews.find(review => review.userFname === sessionUser.firstName); // t or f
+  console.log("user review=", reviews.find(review => review.userFname === sessionUser.firstName))
+  const userReviewId = userReview ? userReview.id : null; // review id
+
+
+
+  const reviewButton = userReview ? 
+        ( <button type="submit" id="rev-sub-btn" onClick={handleUpdate}><i id="rev-sub-star" className="far fa-star"></i>Update Your Review</button>) 
+        : 
+        (<button type="submit" id="rev-sub-btn" onClick={handleNew}><i id="rev-sub-star" className="far fa-star"></i>Write a Review</button>);
+
+  if (!shopId || !userReview) {
+          <h1>loading...</h1>
+      }
+
   useEffect(()=>{
     if(shop){
       setRating(shop.rating)
@@ -100,9 +136,10 @@ const ShopShow = () => {
           </div>
         </div>
 
-        <button className="review-btn" onClick={handleClick}>
+    {reviewButton}
+        {/* <button className="review-btn" onClick={handleClick}>
           <i class="fa-regular fa-star"></i> Write a review
-        </button>
+        </button> */}
       </div>
       <div className="middle-page">
         <div className="middle-container">

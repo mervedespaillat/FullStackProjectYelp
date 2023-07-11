@@ -10,6 +10,7 @@ import React from "react";
 import ShopIndex from "../../components/shops/ShopIndex";
 import "./home.css";
 import ReviewForm from "../../components/Reviews/reviewForm";
+import ReviewEditForm from "../../components/Reviews/reviewEditForm";
 
 
 const Home = () => {
@@ -39,7 +40,7 @@ const Home = () => {
           <ReviewForm/>
         </Route>
         <Route exact path="/shops/:shopId/:reviewId/edit">
-          <ReviewForm/> ///Change this edit
+          <ReviewEditForm/> 
         </Route>
       </Switch>
       <Footer></Footer>

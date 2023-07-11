@@ -11,6 +11,7 @@ const setCurrentUser = (user) => {
     }
 }
 const removeCurrentUser = (user) => {
+    debugger
     return{
         type: REMOVE_CURRENT_USER,
         payload: user

@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-    before_action :require_logged_in, only: [:destroy, :create, :edit]
+    before_action :require_logged_in, only: [:destroy, :create, :update]
     #protect_from_forgery with: :null_session
 
     def new
@@ -44,7 +44,7 @@ class Api::ReviewsController < ApplicationController
         @review.user_id = current_user.id
         
         if @review.save
-            @review.shop.update_avg_rating
+            # @review.shop.update_avg_rating
             render :show
         else
             render json: {errors: @review.errors.full_messages} , status: :unprocessable_entity
@@ -52,12 +52,14 @@ class Api::ReviewsController < ApplicationController
     end
 
 
-    def edit
+    def update
+        debugger
          @review = Review.find(params[:id])
-        if @review.update
+        if @review && @review.update(review_params)
+            debugger
             render :show
         else
-            render json: @review.errors.full_messages, status: :unprocessable_entity
+            render json: @review.errors.full_messages, status: 422
         end
     end
 
@@ -78,7 +80,7 @@ class Api::ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:reviews).permit(:shop_id, :user_id, :body, :rating)
+        params.require(:review).permit(:shop_id, :user_id, :body, :rating)
     end
 
 end
