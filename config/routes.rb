@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show]
     resource :session, only: [:show, :create, :destroy]
     resources :shops, only: [:show, :index] do
+      get :search, on: :collection
       resources :reviews, only: [:index, :show]
     end
     resources :reviews, only: [:new, :create, :destroy, :update] 

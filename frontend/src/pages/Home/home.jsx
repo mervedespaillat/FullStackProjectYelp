@@ -1,4 +1,4 @@
-import Navigation from "../../layouts/Navigation"
+import Navigation from "../../layouts/Navigation";
 import SignupForm from "../../components/SignupForm";
 import LoginForm from "../../components/login/Login";
 import MainPage from "../../components/mainPage";
@@ -11,12 +11,9 @@ import ShopIndex from "../../components/shops/ShopIndex";
 import "./home.css";
 import ReviewForm from "../../components/Reviews/reviewForm";
 import ReviewEditForm from "../../components/Reviews/reviewEditForm";
-
+import SearchBarResult from "../../components/SearchBar/SearchBarResult";
 
 const Home = () => {
-
- 
-
   return (
     <div className="home">
       <Navigation></Navigation>
@@ -30,6 +27,11 @@ const Home = () => {
         <Route path="/signup">
           <SignupForm />
         </Route>
+        <Route
+          exact
+          path="/search/:query">
+          <SearchBarResult />
+        </Route>
         <Route exact path="/shops/:shopId">
           <ShopShow />
         </Route>
@@ -37,10 +39,10 @@ const Home = () => {
           <ShopIndex />
         </Route>
         <Route exact path="/shops/:shopId/review">
-          <ReviewForm/>
+          <ReviewForm />
         </Route>
         <Route exact path="/shops/:shopId/:reviewId/edit">
-          <ReviewEditForm/> 
+          <ReviewEditForm />
         </Route>
       </Switch>
       <Footer></Footer>

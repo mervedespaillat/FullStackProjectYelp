@@ -1,6 +1,8 @@
 export const RECEIVE_SHOPS = 'shops/RECEIVE-SHOPS'
 export const RECEIVE_SHOP = 'shops/RECEIVE-SHOP'
 export const RECEIVE_LAST_SHOPS ='RECEIVE_LAST_SHOPS'
+export const RECEIVE_SEARCH_SHOPS = 'shops/RECEIVE_SEARCH_SHOPS'
+
 
 export const receiveShops = (shops) => {
     
@@ -20,6 +22,14 @@ export const receiveShop = (shop) => {
 export const receiveLastShops = (shops) => {
     return {
         type: RECEIVE_LAST_SHOPS,
+        shops
+    }
+}
+
+export const receiveSearchShops = shops => {
+    debugger
+    return {
+        type: RECEIVE_SEARCH_SHOPS,
         shops
     }
 }
@@ -60,6 +70,12 @@ export const fetchShopLast = () => async (dispatch)=>{
     }
 }
 
+export const fetchSearchShops = (search) => async dispatch => {
+    const res = await fetch(`/api/shops/search?query=${search}`);
+    const data = await res.json();
+    dispatch(receiveSearchShops(data))
+}
+
 const shopsReducer = (state={}, action) => {
     const newState = {...state}
     switch (action.type) {
@@ -70,6 +86,8 @@ const shopsReducer = (state={}, action) => {
             return newState
         case RECEIVE_LAST_SHOPS:
             return{...action.shops} 
+        case RECEIVE_SEARCH_SHOPS:
+            return { ...action.shops }
         default:
             return state;
     }

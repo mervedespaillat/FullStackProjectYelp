@@ -69,10 +69,13 @@ const Navigation = () => {
             <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
           </a>
           <div className="search-items">
-            <div className="search-style">
-          <input type="search" className="search-box" placeholder="name of the shop"></input><div><i class="fa-solid fa-magnifying-glass"></i></div>
 
-            </div>
+            {/* <div className="search-style">
+          <input type="search" className="search-box" placeholder="name of the shop"></input><div><i class="fa-solid fa-magnifying-glass"></i></div> */}
+
+            {/* </div> */}
+            <SearchBar></SearchBar>
+            <div><i class="fa-solid fa-magnifying-glass"></i></div>
           </div>
         </div>
         <div className="links">
