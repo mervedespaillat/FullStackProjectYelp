@@ -1,480 +1,291 @@
-/* Style for the shop picture */
-.image-cover {
-    /* position: relative; */
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .image-cover img{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
 
-  }
-  
-  .shop-image-overlay {
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: flex-start;
-    color: #fff;
-    padding: 20px; */
-    position: relative;
-  display: inline-block;
-  position: relative;
-  margin-top: -145px;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  }
-  .check-text1{
-color: white;
-  }
-
-  .shop-detail{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  
-  .shop-name {
-
-    color: #fff;
-    margin-right: 1000px;
-    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
-    letter-spacing: -0.4px;
-    display: inline;
-    margin-top: 200px;
-    margin-left: 50px;
-    padding: 0px;
-    border: 0px;
-  }
-
-  .shop-content i{
-  color:rgba(88,180,255,1);
-    margin-left: 50px;
+.show-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
 }
+
+.image-cover{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 325px;
+}
+
+.image-cover img{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  object-fit: cover;
+}
+.about-biz{
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+.card-hr{
+  border: 0;
+  border-top: 1px solid #ebebeb;
+  margin: 16px 10px 10px 0px;
+}
+.shop-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0); /* Adjust the background color and opacity as needed */
+  padding: 10px;
+  width: 100%;
+  color: #fff; /* Text color */
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.review-part{
+  display: flex;
+  width: 100%;
+  height: 40px;
+}
+
+#rev-sub-btn{
+  width: 100%;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: red;
+  border-radius: 2px;
+;
+}
+
+#rev-sub-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 20px;
+  background-color: #d32323;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  /* border-radius: 4px; */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#rev-sub-btn:hover {
+  background-color: rgba(255, 0, 0, 0.616);
+}
+
+#rev-sub-star {
+  margin-right: 8px;
+}
+
+
+.middle-page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+}
+
+.middle-container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.show-left{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.show-right{
+  display: flex;
+  width: 40%;
+}
+
+.map-show-hour{
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+.biz-header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+.biz-header h1 {
+  margin-left: 10px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.show-hr{
+  margin: 16px 10px 10px 10px;
+
+}
+
+
+.day-hours{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  justify-items: flex-start;
+  align-items: flex-end;
+  /* flex-direction: column-reverse; */
+  flex-wrap: wrap;
+  width: 70%;
+  height: 300px;
+}
+.middle-section{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.address-map{
+  display: flex;
+  width: 100%;
+  height: 90%;
+  flex-direction: row;
+}
+.address-section{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.address-section p {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 22px;
+}
+.day-hours p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.show-split {
+  flex-direction: column;
+}
+
+.show-right {
+  display: flex;
+  width: 50%;
+}
+
+
+.show-card {
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px #ccc;
+  border-color: #ebebeb;
+  color: #253b56;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  justify-content: center;
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 54px;
+}
+.card-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-link a {
+  text-decoration: none;
+  color: rgba(2, 122, 151, 1);
+}
+
+.card-street,
+.card-address,
+.card-phoneNumber {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #253b56;
+  margin-bottom: 5px;
+}
+
+.address-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(2, 122, 151, 1);
+  margin-bottom: 10px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ebebeb;
+  margin: 10px 0;
+}
+
+.amenities{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+
+.amenities h1{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 0px;
+  line-height: 24px;
+  color: rgb(45, 46, 47);
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top:20px
+}
+
+.shop-name{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 35px;
+  font-weight: bolder;
+
+}
+
+.img-rating{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.shop-rating{
+  margin-left: 5px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.total-review{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px;
+}
+
 .check-text{
-    color:rgba(88,180,255,1);
-    letter-spacing: 0px;
-    line-height: 24px;
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px;
+  font-size: 24px;
+
 }
 .check-text1{
-    letter-spacing: 0px;
-    line-height: 24px;
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px;
+  font-size: 24px;
+
+}
+.shop-content i {
+  margin-top: 10px;
 }
 
-.review-count{
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 22px;
-    color:white
+.hours{
+  margin-top: 10px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
 }
-
-  .hours{
-
-    padding-top: 20px ;
-    color: #fff;
-    font-size: 20px;
-    margin-right: 1000px;
-    position: relative;  
-    letter-spacing: 0px;
-    line-height: 24px;
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 20px;
-    font-weight: 600;  
-    margin-left:50px
-  }
-  
-  .review-btn {
-    align-self: start;
-    text-align: center;
-    margin-left:60px;
-    margin-top:30px;
-    font-weight: 100;
-    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
-    padding: 18px 60px;
-    font-size: 20px;
-    color: #ffffff;
-    background-color:#d32323;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    letter-spacing: -0.2px;
-    line-height: 24px;
-  }
-  
-  .review-btn:hover {
-    background-color: #857272;
-  }
-  
-  /* Rest of the styles for the image container, shop picture, image text, and rating icons */
-  
-.shop-pic img{
-    width: 100%;
-    /* max-height: 500px; */
-    object-fit: cover;
-  }
-  
-  /* Style for the image text */
-  .image-text {
-    /* text-align: center;
-    margin-top: 10px; */
-    margin-top: auto;
-    margin-bottom: 30px;
-    padding: 0 40px;
-  }
-  
-  /* Style for the rating icons */
-  .img-rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    margin-left: 6px;
-  }
-  
-  /* .img-rating i {
-    font-size: 30px;
-    color: #e388bc;
-    margin: 0 2px;
-    /* padding: 0 40px; */
-  
-  .rating-list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-right: 1130px;
-    padding-top: 10px;
-    margin-top: auto;
-    margin-bottom: 30px;
-    padding: 0 40px;
-  }
-  .review-count{
-    padding-left: 5px
-  }
-  .check-icon{
-    color: blue;
-    margin-right: 1130px;
-
-  }
-  
-  /* Style for the middle page container */
-  .middle-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  /* Style for the middle container */
-  .middle-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .show-split {
-    flex-direction: column;
-  }
-  /* Style for the left side of the middle page */
-  .show-left {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex: 1
-
-  }
-  
-  /* Style for the map */
-  .map-show-hour {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Style for the right side of the middle page */
-  .show-right {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Style for the review container */
- 
-
-  .review-form-container {
-    display: flex;
-    justify-content: center;
-    height: 700px;
-    flex-direction: column;
-    align-items: center;
-  }
-  .post-review{
-    display: flex;
-    align-self: center;
-    text-align: center;
-    margin-left:580px;
-    margin-top:0px;
-    font-weight: 500;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    padding: 18px 60px;
-    font-size: 20px;
-    color: #ffffff;
-    background-color:#d32323;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    letter-spacing: -0.2px;
-    line-height: 24px;
-  }
-
-  .form-header{
-    display: inline-flex;
-    justify-content: space-between;
-    margin-bottom: 40px
-  }
-
-  .shop-name-header{
-    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    line-height: 36px;
-    word-wrap: break-word;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    color: rgba(45,46,47,1);
-  }
-
-  .guidelines{
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    border-radius: 3px;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    font-weight: 600;
-    color: rgba(2,122,151,1);
-    font-size: 16px;
-    line-height: 20px;
-  }
-  .form-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
- 
-  .review-form{
-    width: 625px;
-    height: 370px;
-    border: 1px solid rgba(200,201,202,1);
-  }
-  .form-holder{
-    width: 585.8px;
-    height: 45px;
-  }
-  .explanation{
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    line-height: 20px;
-    color: rgba(110,112,114,1);
-    text-align: left;
-  }
-
-  .review-body{
-    width: 99%;
-    height: 300px;
-    border: none;
-  }
-  
-  .photo-load{
-    width: 623px;
-    height: 156px;
-    border: 1px solid rgba(200,201,202,1); 
-    margin-top: 30px;
-  }
-
-  .post-btn{
-    margin-left: 300px;
-    margin-top: 0;
-  }
-  /* Additional styling for review list */
-  ul.review-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .review-list li {
-    margin-bottom: 5px;
-  }
-  
-  /* Additional styling for the map */
-  .map-show{
-    justify-content: flex-start;
-
-  }
-  .map-style {
-    width: 50%;
-    height: 50%;
-    align-self: start;
-  }
-  .map{
-    width: 300px;
-    height: 300px;
-    align-self: start;
-  }
-  
-
-  
-  .map-show-hour {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0 100px;
-    margin-right: 20px;
-  }
-  
-  .item {
-    float: left;
-    align-items: center;
-    margin-bottom: 10px;
-    justify-content: space-between;
-  }
-  
-  .edit-section {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .map-section {
-    margin-bottom: 20px;
-  }
-  
-  .address-section {
-    margin-bottom: 0px;
-  }
-  
-  .day-hours {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    /* justify-content: flex-end; */
-    /* margin-left: 300px;
-    margin-bottom: 200px; */
-    font-size: 30px;
-    margin-top: -140px;
-  }
-  .day-hours p {
-    margin-top: 15px;
-  }
-  
-  /* Additional styling for the map and address elements */
-  .map-style {
-    width: 100%;
-    height: 200px;
-  }
-  
-  .address-section p {
-    margin: 5px 0;
-  }
-  
-  .card-link a{
-    text-decoration: none;
-    color: rgba(2,122,151,1);
-  }
-
-  .show-card {
-    border-radius: 5px;
-    box-shadow: 0px 0px 4px #ccc;
-    border-color: #ebebeb;
-    color: #253b56;
-    background-color: #ffffff;
-    align-items: center;
-    display: flex;
-    width: 3px;
-    height: 200px;
-    width: 400px;
-    justify-content: center;
-    margin-right: 133px;
-  }
-
-
-  .amenities{
-    height: 160px;
-    width: 700px;
-    margin-top: 30px;
-    border-top: 1px solid rgb(197, 192, 192);
-    padding-top: 50px;
-
-  }
-  .about-biz{
-   
-    height: 200px;
-    width: 700px;
-    margin-top: 10px;
-    border-top: 1px solid rgb(197, 192, 192);
-    padding-top: 50px;
-  }
-
-  .review-box{
-    height: 200px;
-    width: 700px;
-    margin-top: 10px;
-    border-top: 1px solid rgb(197, 192, 192);
-    padding-top: 50px;
-  }
-
-  .biz-header{
-    justify-content: space-between;
-    flex-direction: row;
-    display: inherit;
-    align-items: center;
-    border-top: 1px solid rgb(197, 192, 192);
-  }
-  .address-map{
-    justify-content: space-between;
-    flex-direction: row;
-    display: inherit;
-    align-items: center;
-    margin-top: 60px
-  }
-
-  .amenities h1{
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: 0px;
-    line-height: 24px;
-    color: rgb(45, 46, 47);
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .about-biz{
-    margin-top: 30px
-  }

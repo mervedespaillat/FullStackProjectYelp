@@ -19,7 +19,7 @@ const ReviewIndex = () => {
 
   return (
     <>
-      <ul>{listedReviews}</ul>
+      <ul className="review-margin">{listedReviews}</ul>
       {/* <Link to="/reviews/new">Write a Review</Link> */}
     </>
   );

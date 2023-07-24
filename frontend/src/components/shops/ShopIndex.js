@@ -6,77 +6,81 @@ import "./shopIndex.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchReviews, getReviews } from "../../store/reviews";
 import RatingStars from "../RatingStars/ratingStars";
-import MeltMapIndexWrapper from "../myMap/mapIndex";
-
+import MapIndex from "../MyMap/MapIndex";
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
 
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
-  console.log(shop)
+  console.log(shop);
 
   const reviews = useSelector(getReviews);
-  useEffect(()=>{
-    dispatch(fetchReviews(shopId))
-  },[shopId])
- 
+  useEffect(() => {
+    dispatch(fetchReviews(shopId));
+  }, [dispatch, shopId]);
 
-  const [ rating, setRating] = useState(0)
+  const [rating, setRating] = useState(0);
 
-  useEffect(()=>{
-    if(shop){
-      setRating(shop.rating)
+  useEffect(() => {
+    if (shop) {
+      setRating(shop.rating);
     }
-  },[shop])
-  
+  }, [shop]);
+
+  console.log("second time");
+
   useEffect(() => {
     dispatch(fetchShops());
   }, []);
 
   const shops = useSelector(getShops);
-  if (!shops) return null;
-  
+  if (shops === null) {
+    // Show a loading state while shops data is being fetched
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
       <div id="main-container">
         <div className="container">
-          <div className="split left">
-              {shops.map((shop, index) => (
-                
-                <div className="list-items">
-                        <div className="split-card card-left">
-
+          <div className="split-left">
+            {shops.map((shop, index) => (
+              <div className="list-items">
+                <div className="split-card card-left">
                   <img src={shop.photo} className="index-image" />
-                        </div>
-          
-                <div className="split-card card-right">
-                        <ul className="index-list">
-                        <li>
-                        <ShopIndexItem className="a" key={index} shop={shop}>
-                          {shop.id}.{shop.name}
-                        </ShopIndexItem>
-                        <RatingStars rating={shop.rating} setRating={(setRating)} readOnly={true}/>
+                </div>
 
-                        <p className="money city"> $$ • {shop.city}</p>
-                        <p>
-                          <span style={{ color: "green", fontSize: "22px" }}>
-                            Open
-                          </span>{" "}
-                          <span style={{ color: "black", fontSize: "14px" }}>
-                            until {shop.closingTime}.00PM
-                          </span>
-                        </p>
-                      </li>
-                    </ul>
+                <div className="split-card card-right">
+                  <ul className="index-list">
+                    <li>
+                      <ShopIndexItem className="a" key={index} shop={shop}>
+                        {shop.id}.{shop.name}
+                      </ShopIndexItem>
+                      <RatingStars
+                        rating={shop.rating}
+                        setRating={setRating}
+                        readOnly={true}
+                      />
+
+                      <p className="money city"> $$ • {shop.city}</p>
+                      <p>
+                        <span style={{ color: "green", fontSize: "22px" }}>
+                          Open
+                        </span>{" "}
+                        <span style={{ color: "black", fontSize: "14px" }}>
+                          until {shop.closingTime}.00PM
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
                 </div>
-                </div>
+              </div>
             ))}
           </div>
-          <div className="image"></div>
-          <div className="split right">
-            <MeltMapIndexWrapper className="mapIndex"></MeltMapIndexWrapper>
+          {/* <div className="image"></div> */}
+          <div className="split-right">
+            <MapIndex className="mapIndex"></MapIndex>
           </div>
         </div>
       </div>

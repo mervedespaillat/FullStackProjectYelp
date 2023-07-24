@@ -53,10 +53,10 @@ class Api::ReviewsController < ApplicationController
 
 
     def update
-        debugger
+        
          @review = Review.find(params[:id])
         if @review && @review.update(review_params)
-            debugger
+            
             render :show
         else
             render json: @review.errors.full_messages, status: 422

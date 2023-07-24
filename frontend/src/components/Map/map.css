@@ -2,3 +2,9 @@
     height: 60px;
     width: 60px;
 } */
+
+.map {
+    /* position: relative; Change the position to relative */
+    height: 300px; /* Set the desired height */
+    width: 100%; /* Set the desired width */
+  }

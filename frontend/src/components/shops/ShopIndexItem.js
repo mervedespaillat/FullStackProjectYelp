@@ -12,6 +12,6 @@ const ShopIndexItem = ({ shop }) => {
       </li>
     </>
   );
-};
+};  
 
 export default ShopIndexItem;

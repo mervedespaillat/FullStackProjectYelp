@@ -1,118 +1,92 @@
+/* Main Container */
 #main-container {
-  position: relative;
-  /* height: calc(100vh - 80px); */
-  height: 100%;
-  width: 100%;
-  top: 80px;
-  padding-bottom: 180px;
-  /* margin: auto; */
-}
-
-.container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-
-.list-items {
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  min-width: 90%;
-  border-color: #ebebeb;
-  margin: 5px;
+  margin-top: 80px;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/* Left Split */
+.split-left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.split-right{
+  width: 60%;
+  display: flex;
+}
+
+/* List Items */
+.list-items {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ebebeb;
+  border-bottom: none;
   padding: 5px;
   font: inherit;
-  vertical-align: baseline;
-  border-bottom: 1px solid #ebebeb;
-  border-left: none;
-  border-right: none;
-  margin-left: 15px;
-  margin-right: 15px;
   line-height: 1.5;
-  align-items: left;
+  align-items: center;
 }
-.index-image{
-  height: 200px;
-  width: 200px;
+
+.index-image {
+  height: 150px;
+  width: 80%;
   border-radius: 20px;
   border: 1px solid rgb(233, 220, 220);
   object-fit: cover;
+  margin: 10px 0;
 }
 
+/* Link Styling */
 .list-items a {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  font: inherit;
-  vertical-align: baseline;
   font-weight: bold;
   text-decoration: none;
   color: black;
-  align-items: center;
-
 }
 
-.shop-name a:hover {
+.list-items a:hover {
   text-decoration: underline;
 }
 
+/* Hover Effect */
 .list-items:hover {
-  border-left: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-  border-top: 1px solid #ebebeb;
-
+  border: 1px solid #ebebeb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.split {
-  /* height: 100%; */
-  width: 50%;
-  padding-top: 20px;
-}
-
-.left {
-  width: 40%;
-  background-color: #ffff;
-}
-
-.right {
-  width: 80%;
+/* Right Split */
+.split-right {
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.split-card{
+/* Card Layout */
+.card-left,
+.card-right {
   width: 50%;
+  height: 100%;
   display: flex;
-  position: relative
+  align-items: center;
 }
 
-.card-left{
-width: 70%;
-display: flex;
-justify-content: flex-start;
-}
-
-.card-right{
-  margin-top: 10px;
-  width: 50%;
-  position: absolute;
-  justify-content: center;
-}
-
-
+/* Map Styling */
 .mapIndex {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1000px;
-  height: 1000px;
+  width: 100px;
+  height: 100px;
 }
 
-
+/* Money Style */
 .money {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -120,8 +94,8 @@ justify-content: flex-start;
   text-align: left;
 }
 
-.myMap{
-  width: 1300px;
-  height: 1300px;
-  margin-left: -500px;
+/* Map Size */
+.myMap {
+  max-width: 100%;
+  height: auto;
 }

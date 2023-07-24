@@ -27,7 +27,7 @@ export const receiveLastShops = (shops) => {
 }
 
 export const receiveSearchShops = shops => {
-    debugger
+    
     return {
         type: RECEIVE_SEARCH_SHOPS,
         shops

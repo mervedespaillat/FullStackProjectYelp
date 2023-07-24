@@ -111,6 +111,7 @@ const ReviewForm = () => {
             onClick={handleSubmit}
           />
         </div>
+      <hr></hr>
       </div>
       <div className="review-main"></div>
     </>

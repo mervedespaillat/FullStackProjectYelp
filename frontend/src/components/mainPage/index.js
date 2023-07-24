@@ -88,10 +88,9 @@ const MainPage = () => {
        </div>
        <div className="card-container">
         {lastThreeReviews.map((reviewData, index)=>(
-          
+  
           <Card
           key={index}
-         
           shopName={reviewData.shopId}
           address={reviewData.rating}
           city={reviewData.body}
