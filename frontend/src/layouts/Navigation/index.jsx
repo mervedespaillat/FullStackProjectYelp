@@ -10,6 +10,11 @@ import SearchBar from "../../components/SearchBar/SearchBar.js"
 const Navigation = () => {
   const sessionUser = useSelector((state) => state.session.user); // bu get post ile ayni sey mi
 
+  const location = useLocation();
+
+  const path = location.pathname;
+
+
   const [isSignUpPage, setIsSignUpPage] = useState(false);
   const [isLoginPage, setIsLoginPage] = useState(false);
   const [isShopPage, setIsShopPage] = useState(false);
@@ -19,12 +24,14 @@ const Navigation = () => {
     setIsLoginPage(page === "login");
   };
 
+  
 
-  const location = useLocation();
 
   useEffect(() => {
     setIsShopPage(location.pathname.includes("/shops"));
   }, [location]);
+
+  
  
 
   let sessionLinks;
@@ -32,7 +39,9 @@ const Navigation = () => {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
-      <>
+      <>         
+       <div id="right-nav" style={{ display: (path === '/login' || path === '/signup') ? 'none' : 'flex' }}>
+
         <NavLink
           className="login"
           to="/login"
@@ -47,6 +56,7 @@ const Navigation = () => {
         >
           Sign Up
         </NavLink>
+        </div>
       </>
     );
   }
@@ -59,7 +69,7 @@ const Navigation = () => {
           <a href="/" exact>
             <p
               className={
-                isSignUpPage || isLoginPage || isShopPage
+                path === '/login' || path === '/signup' || isShopPage
                   ? "navbar-text-onchange"
                   : "navbar-text"
               }
@@ -75,7 +85,6 @@ const Navigation = () => {
 
             {/* </div> */}
             <SearchBar></SearchBar>
-            <div><i class="fa-solid fa-magnifying-glass"></i></div>
           </div>
         </div>
         <div className="links">

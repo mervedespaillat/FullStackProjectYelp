@@ -51,10 +51,14 @@ const LoginForm = () => {
 
   return (
     <div className="login-page">
+      <div className="login-left-side">
       <form onSubmit={handleSubmit}>
         <h2>Log in to Yelp</h2>
         <p className="new-yelp">New to Yelp? <NavLink to ="/signup">Sign Up</NavLink></p>
-        <p className="terms">By continuing, you agree to Yelp`s Terms of Service and acknowledge Yelp`s Privacy Policy.</p>
+        <p className="terms">
+            By continuing, you agree to Yelp's <a href="#">Terms of Service</a>{" "}
+            and <br></br>acknowledge Yelp's <a href="#">Privacy Policy</a>.
+          </p>
         <label>
           <input
             type="text"
@@ -80,6 +84,10 @@ const LoginForm = () => {
           ))}
         </ul>
       </form>
+      </div>
+      <div className="login-right-side">
+      <img className="yelp-image-sign" src="https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png" alt="" />
+      </div>
     </div>
   );
 };

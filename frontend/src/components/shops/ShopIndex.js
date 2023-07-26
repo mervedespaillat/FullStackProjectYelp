@@ -27,8 +27,7 @@ const ShopIndex = () => {
       setRating(shop.rating);
     }
   }, [shop]);
-
-  console.log("second time");
+ 
 
   useEffect(() => {
     dispatch(fetchShops());

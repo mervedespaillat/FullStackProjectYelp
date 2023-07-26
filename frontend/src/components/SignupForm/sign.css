@@ -1,289 +1,136 @@
-.whole-page{
-    display: flex;
-    height: 100vh;
-    width: 80%;
-    background: white;
-}
-.splitPage{
-    width: 50%;
-    padding-top: 20px;
+.signup-page {
     display: flex;
     justify-content: center;
-    align-items: self-start;
-    flex-direction: column;
-    margin-top: 100px;
-    width: 50%;
-    height: 90%;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+  }
   
-}
-.left-page-sign{
+  .signup-page form {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.right-page-sign{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.two-header{
-    margin-top: 10px;
-    height: 140px;
-    width: 500px;
-}
-
-.two-header h2{
+    flex-direction: column;
+    width: 300px;
+    padding: 40px;
+    /* border-radius: 20px; */
+    /* box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25), 0px 10px 10px rgba(0, 0, 0, 0.22); */
+    /* background-color: #ffffff; */
+  }
+  
+  .signup-page label {
+    font-size: 18px;
+    /* margin-bottom: 10px; */
+    color: #333333;
+    font-weight: 500;
+  }
+  .terms a{
+    color: #0073bb;
+    text-decoration: none;
+  }
+  .signup-page h2 {
     font-weight: bold;
     margin-bottom: 6px;
-    font-size: 28px;
-    line-height: 1.28571em;
+    font-size: 24px;
+    color: #d32323;
     text-align: center;
     padding-bottom: 10px;
-    display: block;
-    margin: 0 0 6px;
-}
+  }
 
-.two-header h3{
+  .signup-page h3{
     font-weight: bold;
-    margin-bottom: 12px;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-}
-
-.two-header p{
-    font-weight: bold;
-    margin-bottom: 12px;
-    display: block;
-    text-align: center;
+    margin-bottom: 6px;
     font-size: 14px;
-}
-.two-header a{
-    text-decoration: none;
-    color:#0073bb
-}
-.btn-container{
-    justify-content: space-between;
-    align-items: center;
-    height: 200px;
-    width: 500px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-.btn-container button{
-   
-    height: 50px;
-    width: 330px;
-    padding: 15px;
-    font-size: 18px;
-    margin-top: 14px;
-    color: #ffffff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.btn-one{    
-    background: #1877f2;
-    cursor: pointer;
-
-}
-.btn-two{
-border: 1px solid #dadce0;
-color: black;
-cursor: pointer;
-font-family: "Google Sans",arial,sans-serif;
-}
-.btn-three{
-    color: #fff;
-    background: #000;
-    cursor: pointer;
-    margin-top: 10px;
-}
-.or{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 500px;
-    margin-top: 0px; 
-}
-
-.or p{
-    color: white;
-}
-.orText{
-    font-size: 24px;
-    color: #999;
-}
-.dont-worry{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 500px;
-    margin-top: 10px;
-}
-
-.dont-worry p {
-    font-size: 18px;
-}
-
-.form-container-sign{
-
-    justify-content: center;
-    align-items: flex-start;
-    height: 500px;
-    width: 500px;
-    margin-top: 0px;
-}
-
-.form-container-sign input{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  
+  .new-yelp {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  
+  .terms {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5em;
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  
+  .signup-page input {
     display: block;
     box-sizing: border-box;
     width: 100%;
     margin: 0 0 18px;
-    padding: 10px 9px;
+    padding: 5px 9px;
     background: #fff;
     border: 1px solid #999;
     border-radius: 3px;
     font-size: 14px;
     line-height: 1.28571em;
     line-height: 1.29em;
-}
-.form-container-sign input:focus{
-    border: 2px solid rgb(210, 19, 19);
-}
-
-.name-credentials{
-    justify-content: space-between;
-    flex-direction: row;
+  }
+  
+  .signup-page input:focus {
+    border: 2px solid #0056b3;
+  }
+  
+  .signup-page button {
+    padding: 10px 13px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ffffff;
+    background-color: rgb(210, 19, 19);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-page button:hover {
+    background-color: rgb(193, 98, 98);
+  }
+  
+  .signup-left-side {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
-}
-
-.fname-box{
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 50%;
-    margin-top: 10px;
-}
-
-.lname-box{
-    justify-content: center;
-    height: 40px;
-    width: 50%;
-    margin-top: 10px;
-}
-
-.mail{
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
-}
-.psswrd{
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
-}
-.psswrd-confirm{
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
-}
-.zip-c{
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
-}
-.sign-btn{
-    justify-content: center;
-    align-items: flex-start;
-    height: 70px;
-    width: 50%;
-    margin-top: 10px;
-}
-.sign-btn button{
-    padding:5px 93%;
-    font-size: 18px;
-    margin-top: 10px;
-    color: #ffffff;
-    background-color:#d32323;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-}
-.demo-sign{
-    justify-content: center;
-    align-items: flex-start;
-    height: 70px;
-    width: 56%;
-    margin-top: 10px;
-}
-.demo-sign button{
-    /* padding:5px 44%;
-    font-size: 18px;
-    margin-top: 0px;
-    color: #ffffff;
-    background-color:#d32323;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center; */
-    padding:5px 81%;
-    font-size: 18px;
-    margin-top: 10px;
-    color: #ffffff;
-    background-color:#d32323;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-}
-
-
-.already-yelp{
+  }
+  
+  .signup-right-side {
     display: flex;
-    justify-content: end;
-    align-items: flex-start;
-    height: 70px;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Add the following styles to the image to make it fit the form */
+  .signup-right-side img {
+    height: 300px;
+    width: 350px;
+  }
+
+  .already-yelp{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
     margin-top: 10px;
-}
-.already-yelp p{
-    font-size: 18px;
-}
-.already-yelp a{
+    color: #999;
+  }
+  
+  .already-yelp a{
     text-decoration: none;
     color: #0073bb;
-}
-.yelp-img{
-    display: flex;
-    align-self: center;
-    height: 140px;
-    width: 500px;
-    margin-top: -300px;
+  }
 
-}
 
-.yelp-image-sign{
-    height: 400px;
-    width: 450px;
-}
+  .new-yelp a {
+    text-decoration: none;
+    color: #0073bb;
+    font-weight: 900px;
+  }
+  /* Add any other necessary styles for aligning elements if needed */
+  

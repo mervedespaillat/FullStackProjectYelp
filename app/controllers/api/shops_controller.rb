@@ -19,10 +19,8 @@ class Api::ShopsController < ApplicationController
 
     def search
         query = params[:query].downcase
-        # category = params[:category]&.downcase
-        search_term = "%#{query}%"
+        search_term = "%#{query}%" 
         @shops = Shop.where("LOWER(name) LIKE ?", search_term)
-        print (search_term)
         render :search
     end
     

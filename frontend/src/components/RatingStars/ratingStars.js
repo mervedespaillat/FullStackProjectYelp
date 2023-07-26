@@ -48,8 +48,7 @@ const RatingStars = ({ rating, setRating, readOnly }) => {
           onMouseLeave={onMouseLeave}
           onClick={() => onSaveRating(index)}
         >
-        <i class="fa-solid fa-ice-cream"></i>
-
+          <i className="fa-solid fa-ice-cream"></i>
         </span>
       ))}
     </div>

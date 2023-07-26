@@ -70,12 +70,16 @@ class Api::ReviewsController < ApplicationController
     end
 
 
+    # def recent_reviews
+    #         #datayi getir son 3 olacak sekilde 
+    #     @reviews = Review.order(created_at: :desc).limit(3)
+    #     render :index
+    # end
     def recent_reviews
-            #datayi getir son 3 olacak sekilde 
-        @reviews = Review.order(created_at: :desc).limit(3)
+        @reviews = Review.order(created_at: :desc).limit(3).includes(:shop) # Eager load the associated shop details
         render :index
-    end
-
+      end
+ 
 
     private
 

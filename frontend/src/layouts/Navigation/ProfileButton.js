@@ -47,9 +47,9 @@ const ProfileButton = ({ user }) => {
                 </a>
               </li>
               <li className="logout">
-                <button onClick={logout} className="logout-btn"> 
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
-                   Log Out
+                <button onClick={logout} className="logout-btn">
+                  <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log Out
                 </button>
               </li>
             </ul>

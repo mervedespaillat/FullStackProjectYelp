@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 
 const ShopIndexItem = ({ shop }) => {
+
+
   if (!shop || !shop.id) {
     return <div>Loading</div>;
   }
@@ -12,6 +14,6 @@ const ShopIndexItem = ({ shop }) => {
       </li>
     </>
   );
-};  
+};
 
 export default ShopIndexItem;

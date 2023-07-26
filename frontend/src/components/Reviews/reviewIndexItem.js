@@ -18,10 +18,7 @@ const ReviewIndexItem = ({review}) => {
     }
     if(!review) return null
 
-    const date = formatDateTime(review.createdAt)
-
-    {console.log("setRating=>", review.rating)}
-
+    const date = formatDateTime(review.createdAt) 
     return (
         <div className='review-container'>
         <div className='user-details'>
