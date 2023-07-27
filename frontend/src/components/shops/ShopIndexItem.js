@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-
+import './ShopIndexItem.css'
 const ShopIndexItem = ({ shop }) => {
 
 
@@ -9,7 +9,7 @@ const ShopIndexItem = ({ shop }) => {
   }
   return (
     <>
-      <li key={shop.id}>
+      <li key={shop.id} className="index-name">
         <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
       </li>
     </>

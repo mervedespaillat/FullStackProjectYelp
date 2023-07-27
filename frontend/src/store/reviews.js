@@ -1,7 +1,7 @@
 import csrfFetch from "../store/csrf";
 
 export const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
-export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
+export const RECEIVE_REVIEW = "reviews/RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
 export const RECEIVE_LAST_REVIEWS = "reviews/RECEIVE_LAST_REVIEWS";
 
@@ -63,7 +63,7 @@ export const fetchReview = (reviewId) => async (dispatch) => {
 
 export const createReview = (review) => async (dispatch) => {
   const { body, rating, shopId } = review;
-
+debugger
   const response = await csrfFetch(`/api/reviews`, {
     method: "POST",
     headers: {
@@ -74,7 +74,8 @@ export const createReview = (review) => async (dispatch) => {
   if (response.ok) {
     const reviewObj = await response.json();
     dispatch(receiveReview(reviewObj));
-  } else {
+  } 
+  else {
     throw response;
     const data = await response.json();
   }
@@ -82,6 +83,7 @@ export const createReview = (review) => async (dispatch) => {
 };
 
 export const editReview = (review) => async (dispatch) => {
+  debugger
   const response = await csrfFetch(`/api/reviews/${review.id}`, {
     method: "PATCH",
     headers: {

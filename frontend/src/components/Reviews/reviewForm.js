@@ -10,9 +10,10 @@ import {
   getReview,
 } from "../../store/reviews";
 import { useEffect, useState } from "react";
-import "./reviewForm";
+import "./reviewForm.css";
 import RatingStars from "../RatingStars/ratingStars";
 import { getShop } from "../../store/shops";
+import ShopIndexItem from "../shops/ShopIndexItem";
 // I need to figure it out how im gonna get the review id
 
 const ReviewForm = () => {
@@ -38,6 +39,7 @@ const ReviewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    debugger
     const requireFunction = review.id ? editReview : createReview;
 
     const formData = {
@@ -72,32 +74,35 @@ const ReviewForm = () => {
         <div className="review-form-container">
           <div className="form-content">
             <div className="form-header">
-              <div className="shop-name-header"> {shopName}</div>
-              <div className="guidelines">Read our review guidelines</div>
+              <div className="shop-name-header"> 
+              <ShopIndexItem className="review-shop-name" shop={shop}>
+                        {shop.id}.{shopName}
+               </ShopIndexItem>
+            </div>
             </div>
             <div className="review-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-holder">
                   <div className="rating-button-o">
-                    <RatingStars rating={rating} setRating={setRating} className="rating-on-form" />
+                    <RatingStars rating={rating} setRating={setRating} className="rating-on-form"  />
                   </div>
                 </div>
                 <p className="explanation">
                   A few things to consider in your review
                 </p>
                 <label>
-                  <input
+                  <textarea
                     className="review-body"
                     type="text"
                     onChange={handleBody}
                     value={body}
-                  ></input>
+                  ></textarea>
                 </label>
-                <ul>
+                {/* <ul>
                   {errors.map((error, i) => {
                     return <li key={i}>{error}</li>;
                   })}
-                </ul>
+                </ul> */}
               </form>
             </div>
           </div>

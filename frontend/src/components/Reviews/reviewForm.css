@@ -1,42 +1,99 @@
-
-
-.form-header{
-    display: inline;
-    justify-content: space-between;
-    border: 2px solid black;
-}
-
-.form-content{
-border: 2px solid black;
-}
-
 .review-form-container{
-    display: flex;
-    justify-self: center;
-    background-color: aqua;
-} 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .review-form{
-    border: 2px solid black;
-}
-.rating-button-on {
-  margin-top: 20px;
+  width: 500px;
+  height: 400px;
+  display: flex;
+  border: 1px solid rgba(200,201,202,1) !important;
+  border-radius: 4px;
+  cursor: text;
 
 }
-.container {
-    display: flex;
-  }
-  
-  .content {
-    flex-grow: 1; /* Take up remaining space */
-  }
-  
-  .sidebar {
-    width: 200px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh; /* Set the height to occupy the full viewport height */
-    background-color: #f1f1f1;
-  }
-  
+
+.post-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-name-header{
+  font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  color: rgba(45,46,47,1);
+  margin-bottom: 20px;
+}
+
+.explanation{
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  line-height: 20px;
+  color: rgba(110,112,114,1);
+  text-align: left;
+  margin: 20px 0px 20px 10px;
+}
+
+.review-body{
+  height:300px;
+  width: 400px;
+  border: none;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  outline: none;
+  border: 0;
+  width: 100%;
+  padding: 0;
+  resize: none;
+  color: rgba(45,46,47,1);
+  margin-left: 20px;
+}
+
+.review-body:focus{
+  outline: none;
+}
+
+.rating-button-o{
+  margin: 10px 0px 0px 10px;
+}
+
+.post-review{
+
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  cursor: pointer;
+  height: 44px;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  vertical-align: middle;
+  width: 20%;
+  background-color: rgba(224,7,7,1);
+  color: rgba(255,255,255,1);
+ 
+}
