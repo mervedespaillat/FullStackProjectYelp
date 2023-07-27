@@ -9,8 +9,10 @@ import { getShop, getShops } from "../../store/shops";
 // default
 const MeltMapWrapper=()=> {
 
-  const { shopId } = useParams(); 
-  const shop = useSelector(getShop(shopId)); 
+  const { shopId } = useParams();
+  console.log(shopId)
+  const shop = useSelector(getShop(shopId));
+  console.log(shop)
   const lat = shop.longitude;
   const lng = shop.latitude;
   const center = { lat: lat, lng: lng };

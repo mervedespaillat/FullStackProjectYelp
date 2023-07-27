@@ -109,14 +109,20 @@
             z-index: 1;
             background-color: white;
             border: 1px solid red; */
+            padding: 0px 10px 0px 0px;
+
           }
 
           .profile-dropdown li {
             display: flex;
-            flex-direction: column;
-            padding: 8px 16px; 
-            border: 4px solid rgb(227, 198, 198);
-            border-radius: 3px;;
+            /* flex-direction: column; */
+            padding: 50px 15px;
+            /* border: 4px solid rgb(227, 198, 198); */
+            border-radius: 3px;
+            background: white;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 8px #ddd;
           }
 
           .dropdown-content{
@@ -129,7 +135,6 @@
           .profile-button{
             padding: 15px;
             font-size: 18px;
-            margin-top: 30px;
             color: #ffffff;
             background-color:#d32323;
             border: none;
@@ -141,7 +146,6 @@
           .logout-btn{
             padding: 8px;
             font-size: 18px;
-            margin-top: 30px;
             color: #ffffff;
             background-color:#d32323;
             border: none;
@@ -154,8 +158,4 @@
           .profile-dropdown a  {
             text-decoration: none;
           }
-       
-          .about-me{
-            text-shadow: 2px 2px 2px #d3b1b1;
-
-          }
+      

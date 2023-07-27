@@ -51,7 +51,7 @@ const SignupForm = () => {
     e.preventDefault();
     return dispatch(
       sessionActions.login({
-        email: "demo@mdemo.com",
+        email: "demo@demo.com",
         password: "123456",
       })
     );

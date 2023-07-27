@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import "./profileButton.css";
+import { useHistory } from "react-router-dom";
 
 const ProfileButton = ({ user }) => {
+  const nav = useHistory()
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -26,6 +28,7 @@ const ProfileButton = ({ user }) => {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    nav.push('/')
   };
 
   return (
@@ -38,14 +41,6 @@ const ProfileButton = ({ user }) => {
         {showMenu && (
           <div className="dropdown-content">
             <ul className="profile-dropdown">
-              <li className="about-me">
-                <a href="#">
-                  <i className="fa-solid fa-ice-cream" style={{ color: "red" }}>
-                    {" "}
-                    About Me
-                  </i>
-                </a>
-              </li>
               <li className="logout">
                 <button onClick={logout} className="logout-btn">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>

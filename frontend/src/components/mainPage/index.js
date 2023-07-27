@@ -25,6 +25,8 @@ const MainPage = () => {
   // const lastThreeReviews = useSelector(state => Object.values(state.review))
   const lastThreeReviews = useSelector((state) => Object.values(state.review));
 
+  // let sss = lastThreeReviews.map((revi) => console.log(revi.shop.photo.url))
+
   useEffect(() => {
     dispatch(fetchLastReviews());
   }, [dispatch]);
@@ -93,44 +95,7 @@ const MainPage = () => {
           <br></br>
           {/* <ShopIndex /> */}
           <h1 className="recently-added">Recently Added Shops</h1>
-          <div className="card-container">
-            {/* Render lastThreeShopsWithRatings instead */}
-
-            {lastThreeShopsWithRatings.map((shopData, index) => (
-              <Card
-                key={index}
-                shopName={shopData.name} // Use shop name from shopData
-                address={shopData.address}
-                city={shopData.city}
-                rating={shopData.rating} // Use the calculated average rating
-                image={shopData.photo}
-                className="card"
-              >
-                {getReviewsByShopId(shopData.id)(state)
-                  .slice(0, 3)
-                  .map((reviewData, reviewIndex) => (
-                    <div key={reviewIndex}>
-                      <p>{reviewData.body}</p>
-                      <RatingStars rating={reviewData.rating} readOnly={true} />
-
-                      {/* Find the shop name for this review */}
-                      {lastThreeShops.find(
-                        (shop) => shop.id === reviewData.shopId
-                      ) ? (
-                        <p>
-                          Shop:{" "}
-                          {
-                            lastThreeShops.find(
-                              (shop) => shop.id === reviewData.shopId
-                            ).name
-                          }
-                        </p>
-                      ) : null}
-                    </div>
-                  ))}
-              </Card>
-            ))}
-          </div>
+     
           <div className="card-container">
             {lastThreeReviews.map((reviewData, index) => (
               <Card
@@ -139,7 +104,7 @@ const MainPage = () => {
                 address={reviewData.address}
                 city={reviewData.body}
                 rating={reviewData.rating}
-                image="https://images.unsplash.com/photo-1516043827470-d52c543c438f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
+                image={reviewData.user.photo ? reviewData.user.photo.url : image}
                 className="card"
               ></Card>
             ))}

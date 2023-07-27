@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchReviews, getReviews } from "../../store/reviews";
 import RatingStars from "../RatingStars/ratingStars";
 import MapIndex from "../MyMap/MapIndex";
+import MeltWrapper from "../MyMap/MapIndex";
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const ShopIndex = () => {
   }, []);
 
   const shops = useSelector(getShops);
+  console.log(shops)
   if (shops === null) {
     // Show a loading state while shops data is being fetched
     return <div>Loading...</div>;
@@ -44,6 +46,7 @@ const ShopIndex = () => {
       <div id="main-container">
         <div className="container">
           <div className="split-left">
+          <div className="scrollable-container">
             {shops.map((shop, index) => (
               <div className="list-items">
                 <div className="split-card card-left">
@@ -76,10 +79,11 @@ const ShopIndex = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
           {/* <div className="image"></div> */}
           <div className="split-right">
-            <MapIndex className="mapIndex"></MapIndex>
+            <MeltWrapper shops={shops} className="mapIndexPage"></MeltWrapper>
           </div>
         </div>
       </div>

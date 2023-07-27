@@ -1,4 +1,4 @@
-.navbar {
+header{
     background-color: transparent;
     position: absolute;
     top: 0;
@@ -13,13 +13,22 @@
 
 }
 
-.navbar * {
+header * {
     display: flex ;
 }
 
-.navbar li {
-    margin: 20px;
+#left-nav{
+    margin-left: 10px;
 }
+
+#right-nav{
+    margin-right: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+
 .logo{
     display: flex;
     align-items: center;
@@ -160,11 +169,12 @@ margin: 0;
 
 .search-items{
     display: flex;
-    margin-left: 180px;
+    justify-content: center;
+    /* margin-left: 180px; */
     width: 600px;
 }
 .search-box{
-    margin-left: 200px;
+    /* margin-left: 200px; */
     margin-top: px;
     padding-top: 10px;
     text-align: center;

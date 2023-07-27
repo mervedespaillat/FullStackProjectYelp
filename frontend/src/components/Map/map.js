@@ -1,132 +1,53 @@
-// import { Wrapper } from "@googlemaps/react-wrapper";
-// import { useEffect, useRef, useState } from "react";
-// import { useSelector } from "react-redux";
-// import { useDispatch } from "react";
-// import { fetchShops } from "../../store/shops";
-// import { getShops } from "../../store/shops";
-// import './map.css'
+// MeltWrapper.js (YourMapComponentPath)
 
-// const MeltMap = ({ mapOpt }) => {
-//   const [map, setMap] = useState(null);
+import { Wrapper } from "@googlemaps/react-wrapper";
+import { useEffect, useRef } from "react";
 
-//   const mapRef = useRef(null);
+export function MapComponent({ shops, zoom }) {
+  const mapRef = useRef(null);
 
-//   const markersRef = useRef(null);
+  useEffect(() => {
+    if (!shops || shops.length === 0) return;
 
-//   const dispatch = useDispatch();
-//   const shops = useSelector(getShops);
-//   useEffect(() => {
-//     dispatch(fetchShops());
-//   }, []);
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: shops[0].position,
+      zoom,
+    });
 
-//   useEffect(() => {
-//     if (!map) {
-//       const defaultMapOpt = {
-//         zoom: 12,
-//         center: { lat: 0, lng: 0 },
-//       };
-//       const mergedOptions = { ...defaultMapOpt, ...mapOpt };
-//       const newMap = new window.google.maps.Map(mapRef.current, mergedOptions);
-//       setMap(newMap);
-//     }
-//   }, [map, mapOpt]);
+    shops.forEach((shop) => {
+      new window.google.maps.Marker({
+        position: shop.position,
+        map: map,
+        title: shop.name,
+      });
+    });
+  }, [shops, zoom]);
 
-//   useEffect(() => {
-//     const removeMarkers = (shopIds) => {
-//       for (const shopId in markersRef.current) {
-//         if (!shopIds.includes(shopId)) {
-//           markersRef.current[shopId].setMap(null);
-//           delete markersRef.current[shopId];
-//         }
-//       }
-//     };
+  return <div ref={mapRef} className="map" />;
+}
 
-//     const createMarker = (shop) => {
-//       const position = new window.google.maps.LatLng(
-//         shop.latitude,
-//         shop.longitude
-//       );
-//       const marker = new window.google.maps.Marker({ position });
-//       markersRef.current[shop.id] = marker;
-//     };
+const MeltWrapper = ({ shops }) => {
+  const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-//     const shopIds = shops.map((shop) => shop.id);
+  // Check if the 'shops' array is not defined yet
+  if (!shops || shops.length === 0) {
+    // Show a loading state or return null if no shops data is available
+    return <div>Loading...</div>;
+  }
 
-//     removeMarkers(shopIds);
+  // Create an array of objects with 'position' property for each shop
+  const shopPositions = shops.map((shop) => ({
+    position: { lat: shop.latitude, lng: shop.longitude },
+    name: shop.name,
+  }));
 
-//     shops.forEach((shop) => {
-//       if (!markersRef.current[shop.id]) {
-//         createMarker(shop);
-//       }
-//     });
-//   }, [shops]);
-
-//   return (
-//     <div ref={mapRef} className="melt-map">
-//       Map
-//     </div>
-//   );
-// };
-
-// const MeltMapWrapper = () => {
-//   return (
-//     <div className="map">
-//     <Wrapper apiKey={process.env.GOOGLE_MAPS_KEY}>
-//       <MeltMap></MeltMap>
-//     </Wrapper>
-//     </div>
-//   );
-// };
-
-// export default MeltMapWrapper;
-
-import React, { useRef, useEffect } from 'react';
-import { Wrapper } from '@googlemaps/react-wrapper';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getBusiness } from '../../store/businessReducer';
-import './Map.css';
-
-const MapWrapper = () => {
-    const { shopId } = useParams();
-    const shop = useSelector(getBusiness(shopId));
-    const lat = shop.latitude;
-    const lng = shop.longitude;
-    const key = process.env.REACT_APP_MAPS_API_KEY;
-    const center = { lat: lat, lng: lng };
-    const zoom = 15;
-
-    return (
-        <div id="map">
-          <Wrapper apiKey={key}>
-            <Map zoom={zoom} center={center}></Map>
-          </Wrapper>
-        </div>
-      );
-};
-    
-
-
-const Map = ({center, zoom}) => {
-    const mapRef = useRef(null);
-    const markerRef = useRef(null);
-
-    useEffect(() => {
-        const map = new window.google.maps.Map(mapRef.current, {
-            center,
-            zoom
-        })
-
-        const marker = new window.google.maps.Marker({position: center, map: map})
-        
-        // markerRef.current = marker
-
-    }, [center, zoom])
-
-    return (
-        <div style={{ width: '300px', height: '200px' }} ref={mapRef}></div>
-    );
-    
+  return (
+    <div className="map-one">
+      <Wrapper apiKey={key}>
+        <MyMapComponent shops={shopPositions} zoom={13} />
+      </Wrapper>
+    </div>
+  );
 };
 
-export default MapWrapper;
+export default MeltWrapper;
