@@ -94,7 +94,7 @@ const MainPage = () => {
           <br></br>
           <br></br>
           {/* <ShopIndex /> */}
-          <h1 className="recently-added">Recently Added Shops</h1>
+          <h1 className="recently-added">Recent Activity</h1>
      
           <div className="card-container">
             {lastThreeReviews.map((reviewData, index) => (

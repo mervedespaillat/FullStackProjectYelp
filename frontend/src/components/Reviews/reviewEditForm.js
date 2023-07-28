@@ -77,6 +77,9 @@ import { fetchShop } from "../../store/shops";
 import { fetchReviews, editReview } from "../../store/reviews";
 import { getReviews } from "../../store/reviews";
 import { getShops } from "../../store/shops";
+import ShopIndexItem from "../shops/ShopIndexItem";
+import RatingStars from "../RatingStars/ratingStars";
+import './reviewForm.css'
 
 const ReviewEditForm = () => {
   const dispatch = useDispatch();
@@ -137,43 +140,92 @@ const ReviewEditForm = () => {
   }
 
   return (
-    <div id="review-form-container">
-      <form id="review-form" onSubmit={handleSubmit}>
-        <h1 id="form-biz-name">{shop.name}</h1>
-        <div id="form-details-container">
-            <p>sdfasda</p>
-            <p>dsfsf</p>
-            <p>dsfsf</p>
-            <p>dsfsf</p>
-          <label id="form-stars">
-            Rating:
-            <input
-              type="number"
-              min={1}
-              max={5}
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-              required
-            />
-          </label>
+    // <div id="review-container">
+    //   <form id="review-form" onSubmit={handleSubmit}>
+    //     <h1 id="form-biz-name">{shop.name}</h1>
+    //     <div id="form-details-container">
+    //         <p>sdfasda</p>
+    //         <p>dsfsf</p>
+    //         <p>dsfsf</p>
+    //         <p>dsfsf</p>
+    //       <label id="form-stars">
+    //         Rating:
+    //         <input
+    //           type="number"
+    //           min={1}
+    //           max={5}
+    //           value={rating}
+    //           onChange={(e) => setRating(e.target.value)}
+    //           required
+    //         />
+    //       </label>
 
-          <label id="form-review-body">
-            Review:
-            <textarea
+    //       <label id="form-review-body">
+    //         Review:
+    //         <textarea
+    //           placeholder="Write your review here!"
+    //           value={body}
+    //           onChange={(e) => setBody(e.target.value)}
+    //           required
+    //         />
+    //       </label>
+    //     </div>
+
+    //     <button id="form-review-btn" type="submit">
+    //       Update Review
+    //     </button>
+    //   </form>
+    //   <p>helllloooooooooooo</p>
+    // </div>
+        <>
+        <div className="review-container">
+          <div className="review-form-container">
+            <div className="form-content">
+              <div className="form-header">
+                <div className="shop-name-header"> 
+                <ShopIndexItem className="review-shop-name" shop={shop}>
+                          {shop.id}.{shop.name}
+                 </ShopIndexItem>
+              </div>
+              </div>
+              <div className="review-form">
+                <form onSubmit={handleSubmit}>
+                  <div className="form-holder">
+                    <div className="rating-button-o">
+                      <RatingStars rating={rating} setRating={setRating} className="rating-on-form"  />
+                      <span className="select-star">Select your rating</span>
+                    </div>
+                  </div>
+                  <p className="explanation">
+                    A few things to consider in your review
+                  </p>
+            
+                  <label id="form-review-body">
+           <textarea
+           className="review-body"
               placeholder="Write your review here!"
               value={body}
               onChange={(e) => setBody(e.target.value)}
               required
             />
           </label>
-        </div>
-
-        <button id="form-review-btn" type="submit">
+                  {/* <ul>
+                    {errors.map((error, i) => {
+                      return <li key={i}>{error}</li>;
+                    })}
+                  </ul> */}
+                    <div className="post-btn">
+             <button className="post-review" 
+             type="submit">
           Update Review
-        </button>
-      </form>
-      <p>helllloooooooooooo</p>
-    </div>
+         </button>
+          </div>
+                </form>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </>
   );
 };
 

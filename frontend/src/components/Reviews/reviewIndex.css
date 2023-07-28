@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
   }
   
@@ -131,3 +130,5 @@
   .review-margin{
     margin-left: 60px;
   }
+
+  

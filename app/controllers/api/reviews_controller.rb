@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in, only: [:destroy, :create, :update]
-    #protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
 
     def new
         @review = Review.new
@@ -38,25 +38,43 @@ class Api::ReviewsController < ApplicationController
 
     # isItAReview: bool
 
-    def create 
-        
-        @review = Review.new(review_params)
-        @review.user_id = current_user.id
-        
-        if @review.save
-            # @review.shop.update_avg_rating
-            render :show
-        else
-            render json: {errors: @review.errors.full_messages} , status: :unprocessable_entity
+        def create 
+            @review = Review.new(review_create_params)
+            print @review
+            debugger
+            @review.user_id = current_user.id
+            
+            if @review.save
+                debugger
+                @review.shop.update_average_rating
+                render :show
+            else
+                render json: {errors: @review.errors.full_messages} , status: :unprocessable_entity
+            end
         end
-    end
-
+        # def create
+        #     @review = Review.new
+        #     @review.shop_id = params[:review][:shop_id]
+        #     @review.user_id = params[:review][:user_id]
+        #     @review.rating = params[:review][:rating]
+        #     @review.body = params[:review][:body]
+           
+        #     if @review.save
+        #       @review.shop.update_average_rating
+        #       render :show
+        #     else
+        #       render json: @review.errors.full_messages, status: 422
+        #     end
+        #   end
 
     def update
         
          @review = Review.find(params[:id])
+         debugger
         if @review && @review.update(review_params)
-            
+            debugger
+            @review.shop.update_average_rating
+
             render :show
         else
             render json: @review.errors.full_messages, status: 422
@@ -70,21 +88,25 @@ class Api::ReviewsController < ApplicationController
     end
 
 
-    # def recent_reviews
-    #         #datayi getir son 3 olacak sekilde 
-    #     @reviews = Review.order(created_at: :desc).limit(3)
-    #     render :index
-    # end
+
     def recent_reviews
-        @reviews = Review.order(created_at: :desc).limit(3).includes(:shop) # Eager load the associated shop details
+        @reviews = Review.order(created_at: :desc).limit(3).includes(:shop, :user) # Eager load the associated shop details
         render :index
       end
  
+    #   def recent_reviews
+    #     @reviews = Review.order(created_at: :desc).limit(3).includes(:shop, :user) # Eager load the associated shop details
+    #     render json: @reviews, include: { shop: { only: [:id, :name, :address] }, user: { only: [:id, :username] } }
+    #   end
+      
 
     private
 
     def review_params
         params.require(:review).permit(:shop_id, :user_id, :body, :rating)
-    end
+     end
+    def review_create_params
+        params.require(:reviews).permit(:shop_id, :user_id, :body, :rating)
+     end
 
 end

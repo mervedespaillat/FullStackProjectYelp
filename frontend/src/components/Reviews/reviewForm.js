@@ -85,6 +85,7 @@ const ReviewForm = () => {
                 <div className="form-holder">
                   <div className="rating-button-o">
                     <RatingStars rating={rating} setRating={setRating} className="rating-on-form"  />
+                    <span className="select-star">Select your rating</span>
                   </div>
                 </div>
                 <p className="explanation">
@@ -103,22 +104,19 @@ const ReviewForm = () => {
                     return <li key={i}>{error}</li>;
                   })}
                 </ul> */}
-              </form>
-            </div>
-          </div>
-          <div className="photo-load"></div>
-        </div>
-        <div className="post-btn">
+                  <div className="post-btn">
           <input
-            className="post-review"
+            className="post-review create-review"
             type="submit"
             value={buttonText}
             onClick={handleSubmit}
           />
         </div>
-      <hr></hr>
-      </div>
-      <div className="review-main"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+            </div>
     </>
   );
 };
