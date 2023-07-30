@@ -6,7 +6,8 @@ import "./shopIndex.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchReviews, getReviews } from "../../store/reviews";
 import RatingStars from "../RatingStars/ratingStars";
-import MapIndex from "../MyMap/MapIndex.js"
+import MapIndex from "../MyMap/MapIndex";
+
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
