@@ -8,6 +8,7 @@ import { fetchReviews, getReviews } from "../../store/reviews";
 import RatingStars from "../RatingStars/ratingStars";
 import MeltWrapper from "../MyMap/MapIndex";
 
+
 const ShopIndex = () => {
   const dispatch = useDispatch();
 
