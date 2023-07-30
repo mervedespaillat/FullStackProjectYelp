@@ -6,8 +6,7 @@ import "./shopIndex.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchReviews, getReviews } from "../../store/reviews";
 import RatingStars from "../RatingStars/ratingStars";
-import MeltWrapper from "../MyMap/MapIndex";
-
+import MapIndex from "../MyMap/MapIndex"
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
@@ -83,7 +82,7 @@ const ShopIndex = () => {
           </div>
           {/* <div className="image"></div> */}
           <div className="split-right">
-            <MeltWrapper shops={shops} className="mapIndexPage"></MeltWrapper>
+            <MapIndex shops={shops} className="mapIndexPage"></MapIndex>
           </div>
         </div>
       </div>

@@ -50,4 +50,4 @@ const MeltWrapper = ({ shops }) => {
   );
 };
 
-export default MeltWrapper;
+export default MapIndex;

@@ -11,7 +11,7 @@ import RatingStars from "../RatingStars/ratingStars";
 import { getReviews } from "../../store/reviews";
 import Highlights from "../Highlights/highlights";
 import AboutBiz from "../AboutBiz/AboutBiz";
-import {Redirect} from "react-router-dom"
+
 
 const ShopShow = () => {
   const dispatch = useDispatch();

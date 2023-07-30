@@ -65,7 +65,7 @@ export function MapComponent({ shops, zoom }) {
   return <div ref={mapRef} className="map-index" />;
 }
 
-const MeltWrapper = ({ shops }) => {
+const MapIndex = ({ shops }) => {
   const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
   // Check if the 'shops' array is not defined yet
@@ -89,4 +89,4 @@ const MeltWrapper = ({ shops }) => {
   );
 };
 
-export default MeltWrapper;
+export default MapIndex;
