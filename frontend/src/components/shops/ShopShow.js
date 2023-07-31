@@ -56,7 +56,7 @@ const handleUpdate = e => {
 }
 
   const userReview = reviews.find(review => review.userFname === sessionUser.firstName); // t or f
-  console.log("user review=", reviews.find(review => review.userFname === sessionUser.firstName))
+  // console.log("user review=", reviews.find(review => review.userFname === sessionUser.firstName))
   const userReviewId = userReview ? userReview.id : null; // review id
 
 

@@ -5,7 +5,6 @@ const ShopIndexItemSearch = ({ shop }) => {
   const shopId = Object.keys(shop)[0];
   const detail = shop[shopId];
 
-  console.log(detail);
 
   if (!detail) {
     return <div>Loading</div>;

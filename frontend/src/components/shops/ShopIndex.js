@@ -15,7 +15,6 @@ const ShopIndex = () => {
 
   const { shopId } = useParams();
   const shop = useSelector(getShop(shopId));
-  console.log(shop);
 
   const reviews = useSelector(getReviews);
   useEffect(() => {
@@ -36,7 +35,6 @@ const ShopIndex = () => {
   }, []);
 
   const shops = useSelector(getShops);
-  console.log(shops)
   if (shops === null) {
     // Show a loading state while shops data is being fetched
     return <div>Loading...</div>;
