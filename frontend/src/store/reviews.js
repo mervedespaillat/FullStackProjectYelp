@@ -63,7 +63,7 @@ export const fetchReview = (reviewId) => async (dispatch) => {
 
 export const createReview = (review) => async (dispatch) => {
   const { body, rating, shopId } = review;
-debugger
+
   const response = await csrfFetch(`/api/reviews`, {
     method: "POST",
     headers: {
@@ -83,7 +83,6 @@ debugger
 };
 
 export const editReview = (review) => async (dispatch) => {
-  debugger
   const response = await csrfFetch(`/api/reviews/${review.id}`, {
     method: "PATCH",
     headers: {

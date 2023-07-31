@@ -92,7 +92,7 @@ const Navigation = () => {
         <>
           <div id="left-nav">
         <div className="logo">
-         <a href="/" exact="true">
+         <a href="/">
           <p
               className={
                 path === "/login" || path === "/signup" || isShopPage
@@ -123,7 +123,7 @@ const Navigation = () => {
         <>
          <div id="left-nav">
         <div className="logo">
-         <a href="/" exact="true">
+         <a href="/" >
           <p
               className={
                 path === "/login" || path === "/signup" || isShopPage

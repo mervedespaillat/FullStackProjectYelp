@@ -39,7 +39,7 @@ const ReviewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger
+    
     const requireFunction = review.id ? editReview : createReview;
 
     const formData = {

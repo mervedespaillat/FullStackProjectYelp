@@ -116,7 +116,7 @@ const ReviewEditForm = () => {
   }, [review]);
 
   const handleSubmit = (e) => {
-    debugger
+    
     e.preventDefault();
     const reviewObj = {
       id: review.id,

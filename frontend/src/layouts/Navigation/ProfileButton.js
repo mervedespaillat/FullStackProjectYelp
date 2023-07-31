@@ -9,12 +9,18 @@ const ProfileButton = ({ user }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
+  // const openMenu = () => {
+  //   console.log("openMenu called. showMenu:", showMenu);
+  //       if (showMenu) return;
+  //   setShowMenu(true);
+  // };
+  const openMenu = (e) => {
+    e.stopPropagation(); // Prevent the event from bubbling up
+    setShowMenu((prevShowMenu) => !prevShowMenu); // Toggle the showMenu state
   };
 
   useEffect(() => {
+    console.log("useEffect. showMenu:", showMenu);
     if (!showMenu) return;
 
     const closeMenu = () => {
@@ -39,8 +45,8 @@ const ProfileButton = ({ user }) => {
         </button>
 
         {showMenu && (
-          <div className="dropdown-content">
             <ul className="profile-dropdown">
+              <li>{user.firstName}</li>
               <li className="logout">
                 <button onClick={logout} className="logout-btn">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
@@ -48,7 +54,7 @@ const ProfileButton = ({ user }) => {
                 </button>
               </li>
             </ul>
-          </div>
+        
         )}
       </div>
     </>

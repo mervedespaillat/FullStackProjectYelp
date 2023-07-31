@@ -41,11 +41,11 @@ class Api::ReviewsController < ApplicationController
         def create 
             @review = Review.new(review_create_params)
             print @review
-            debugger
+            
             @review.user_id = current_user.id
             
             if @review.save
-                debugger
+                
                 @review.shop.update_average_rating
                 render :show
             else
@@ -70,9 +70,9 @@ class Api::ReviewsController < ApplicationController
     def update
         
          @review = Review.find(params[:id])
-         debugger
+         
         if @review && @review.update(review_params)
-            debugger
+            
             @review.shop.update_average_rating
 
             render :show
