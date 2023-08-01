@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_190640) do
     t.integer "opening_time"
     t.integer "closing_time"
     t.float "rating"
+    
     t.index ["name"], name: "index_shops_on_name"
   end
 

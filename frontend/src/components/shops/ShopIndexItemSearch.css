@@ -1,0 +1,11 @@
+.search-a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-i{
+    color:rgb(226, 77, 102);
+    font-size: 25px;
+}

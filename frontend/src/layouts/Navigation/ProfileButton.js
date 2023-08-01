@@ -9,14 +9,10 @@ const ProfileButton = ({ user }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
-  // const openMenu = () => {
-  //   console.log("openMenu called. showMenu:", showMenu);
-  //       if (showMenu) return;
-  //   setShowMenu(true);
-  // };
+ 
   const openMenu = (e) => {
-    e.stopPropagation(); // Prevent the event from bubbling up
-    setShowMenu((prevShowMenu) => !prevShowMenu); // Toggle the showMenu state
+    e.stopPropagation(); 
+    setShowMenu((prevShowMenu) => !prevShowMenu); 
   };
 
   useEffect(() => {

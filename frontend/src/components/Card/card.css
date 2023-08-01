@@ -31,6 +31,8 @@
   margin: 12px 0px 0px 0px;
   text-decoration: none;
   list-style-type: none;
+  color: #253b56;
+  cursor: pointer;
 }
 
 .styleLocationLabel {
@@ -54,4 +56,25 @@
 }
 .rating li{
   color: pink;
+}
+
+.review-user-photo{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-user-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+}
+
+.review-user-name{
+  margin-left: 5px;
+  font-weight: 500px;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }

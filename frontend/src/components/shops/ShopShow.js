@@ -12,119 +12,98 @@ import { getReviews } from "../../store/reviews";
 import Highlights from "../Highlights/highlights";
 import AboutBiz from "../AboutBiz/AboutBiz";
 
-
 const ShopShow = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const { shopId } = useParams();
-  const shop = useSelector(getShop(shopId));
 
+  console.info("shopId--->", shopId);
 
+  useEffect(() => {
+    dispatch(fetchReviews(shopId));
+    dispatch(fetchShop(shopId));
+  }, [dispatch]);
+
+  const shop = useSelector(getShop);
   const reviews = useSelector(getReviews);
-  let sessionUser = useSelector(state => state.session.user);
+
+  console.info("shop--->", shop);
+  console.info("reviews--->", reviews);
+
+  let sessionUser = useSelector((state) => state.session.user);
   if (!sessionUser) {
     sessionUser = {};
   }
-  
-  const [ rating, setRating] = useState(0)
-  
-  const total_review = reviews.length
- 
 
-  useEffect(()=>{
-    dispatch(fetchReviews(shopId))
-  },[shopId])
+  const [rating, setRating] = useState(0);
 
-  
-
-    
-const handleNew = e => {
-  e.preventDefault();
-  if (sessionUser && sessionUser.id) {
-    
-      history.push(`/shops/${shopId}/review`)
-  } else {
-    
-history.push("/login")  };
-}
+  const total_review = reviews.length;
 
 
-const handleUpdate = e => {
-  
-  e.preventDefault();
-  history.push(`/shops/${shopId}/${userReviewId}/edit`)
-}
+  const handleNew = (e) => {
+    e.preventDefault();
+    if (sessionUser && sessionUser.id) {
+      history.push(`/shops/${shopId}/review`);
+    } else {
+      history.push("/login");
+    }
+  };
 
-  const userReview = reviews.find(review => review.userFname === sessionUser.firstName); // t or f
-  // console.log("user review=", reviews.find(review => review.userFname === sessionUser.firstName))
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    history.push(`/shops/${shopId}/${userReviewId}/edit`);
+  };
+
+  const userReview = reviews.find(
+    (review) => review.userFname === sessionUser.firstName
+  );
+
   const userReviewId = userReview ? userReview.id : null; // review id
 
-
-
-  const reviewButton = userReview ? 
-        ( <button type="submit" id="rev-sub-btn" onClick={handleUpdate}><i id="rev-sub-star" className="far fa-star"></i>Update Your Review</button>) 
-        : 
-        (<button type="submit" id="rev-sub-btn" onClick={handleNew}><i id="rev-sub-star" className="far fa-star"></i>Write a Review</button>);
-
-  if (!shopId || !userReview) {
-          <h1>loading...</h1>
-      }
-
-  useEffect(()=>{
-    if(shop){
-      setRating(shop.rating)
-    }
-  },[shop])
-  
+  const reviewButton = userReview ? (
+    <button type="submit" id="rev-sub-btn" onClick={handleUpdate}>
+      <i id="rev-sub-star" className="far fa-star"></i>Update Your Review
+    </button>
+  ) : (
+    <button type="submit" id="rev-sub-btn" onClick={handleNew}>
+      <i id="rev-sub-star" className="far fa-star"></i>Write a Review
+    </button>
+  );
 
   useEffect(() => {
-    dispatch(fetchShop(shopId));
-  }, [shopId, dispatch]);
-  
+    if (shop) {
+      setRating(shop.rating);
+    }
+  }, [shop]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    history.push(`/shops/${shopId}/review`);
+  };
 
   if (!shop) {
+    console.info("test");
     return <div>Loading....</div>;
   }
 
-  const {
-    name,
-    address,
-    city,
-    state,
-    zipCode,
-    link,
-    phoneNumber,
-    openingTime,
-    closingTime,
-    photo,
-    longitude
-  } = shop;
-
-  const handleClick = (e) => {
-    e.preventDefault()
-    history.push(`/shops/${shopId}/review`);
-  };
-  
-  return (
-    <>
+  return <>
   <div className="show-container">
   {/* Shop Image and Details */}
   <div className="image-cover">
-    <img className="shop-pic" src={photo} alt="shop picture" />
+    <img className="shop-pic" src={shop.photo} alt="shop picture" />
     <div className="shop-image-overlay">
-      <h1 className="shop-name">{name}</h1>
+      <h1 className="shop-name">{shop.name}</h1>
       <div className="img-rating">
-  {/* <ul className="rating-list"> */}
-    {/* <li className="rating-stars"> */}
-      <RatingStars rating={rating} setRating={setRating} readOnly={true} />
-      <p className="shop-rating">{shop.rating}</p>
-      
-    {/* </li> */}
-    {/* <li className="shop-rating"></li> */}
-  {/* </ul> */}
-</div>
-    <div className="total-review">{total_review} reviews</div>
+        {/* <ul className="rating-list"> */}
+        {/* <li className="rating-stars"> */}
+        <RatingStars rating={rating} setRating={setRating} readOnly={true} />
+        <p className="shop-rating">{shop.rating}</p>
 
+        {/* </li> */}
+        {/* <li className="shop-rating"></li> */}
+        {/* </ul> */}
+      </div>
+      <div className="total-review">{total_review} reviews</div>
 
       <div className="shop-content">
         <i class="fa-solid fa-circle-check"></i>
@@ -132,15 +111,12 @@ const handleUpdate = e => {
         <span className="check-text1"> • $$ • Ice Cream, Milkshake</span>
         <p className="hours">
           <span style={{ color: "rgba(4, 197, 133, 1)" }}>Open </span>
-          {openingTime}:00 AM - {closingTime}:00 PM
+          {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
         </p>
       </div>
     </div>
   </div>
-<div className="review-part">
-    {reviewButton}
-
-</div>
+  <div className="review-part">{reviewButton}</div>
   {/* Middle Section */}
   <div className="middle-page">
     <div className="middle-container">
@@ -161,21 +137,35 @@ const handleUpdate = e => {
                 <MeltMapWrapper className="map-style" />
               </div>
               <div className="address-section">
-                <p>{address}</p>
+                <p>{shop.address}</p>
                 <p>
-                  {city}, {zipCode}
+                  {shop.city}, {shop.zipCode}
                 </p>
-                <p>{state}</p>
+                <p>{shop.state}</p>
               </div>
             </div>
             <div className="day-hours">
-              <p>Mon {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Tue {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Wed {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Thu {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Fri {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Sat {openingTime}:00 AM - {closingTime}:00 PM</p>
-              <p>Sun {openingTime}:00 AM - {closingTime}:00 PM</p>
+              <p>
+                Mon {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Tue {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Wed {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Thu {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Fri {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Sat {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
+              <p>
+                Sun {shop.openingTime}:00 AM - {shop.closingTime}:00 PM
+              </p>
             </div>
           </div>
           {/* </div> */}
@@ -188,38 +178,38 @@ const handleUpdate = e => {
           <AboutBiz />
         </div>
       </div>
-      
 
       {/* Right Section */}
       <div className="show-split show-right">
         <div className="show-card">
           <ul className="card-content">
             <li className="card-link">
-              <a href={link} target="_blank">
-                {link}
+              <a href={shop.link} target="_blank">
+                {shop.link}
               </a>
             </li>
-            <hr className="card-hr"/>
-            <li className="address-title" style={{ color: "rgba(2, 122, 151, 1)" }}>
+            <hr className="card-hr" />
+            <li
+              className="address-title"
+              style={{ color: "rgba(2, 122, 151, 1)" }}
+            >
               Address:
             </li>
-            <li className="card-street">{address}</li>
+            <li className="card-street">{shop.address}</li>
             <li className="card-address">
-              {city}, {state}, {zipCode}
+              {shop.city}, {shop.state}, {shop.zipCode}
             </li>
-            <hr className="card-hr"/>
-            <li className="card-phoneNumber">{phoneNumber}</li>
+            <hr className="card-hr" />
+            <li className="card-phoneNumber">{shop.phoneNumber}</li>
           </ul>
         </div>
       </div>
     </div>
     <ReviewIndex />
   </div>
-</div>
+</div>;
 
-   
-    </>
-  );
+  </>;
 };
 
 export default ShopShow;

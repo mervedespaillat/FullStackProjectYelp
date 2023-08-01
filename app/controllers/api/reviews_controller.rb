@@ -91,7 +91,7 @@ class Api::ReviewsController < ApplicationController
 
     def recent_reviews
         @reviews = Review.order(created_at: :desc).limit(3).includes(:shop, :user) # Eager load the associated shop details
-        render :index
+        render :recent
       end
  
     #   def recent_reviews

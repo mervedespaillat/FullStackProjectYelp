@@ -1,38 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchShops, getShop, getShops } from "../../store/shops";
+import { fetchShops, getShops } from "../../store/shops";
 import { useEffect, useState } from "react";
 import ShopIndexItem from "./ShopIndexItem";
 import "./shopIndex.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { fetchReviews, getReviews } from "../../store/reviews";
+
 import RatingStars from "../RatingStars/ratingStars";
 import MapIndex from "../IndexMap/MapIndex";
-
-
 
 const ShopIndex = () => {
   const dispatch = useDispatch();
 
-  const { shopId } = useParams();
-  const shop = useSelector(getShop(shopId));
-
-  const reviews = useSelector(getReviews);
-  useEffect(() => {
-    dispatch(fetchReviews(shopId));
-  }, [dispatch, shopId]);
 
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
-    if (shop) {
-      setRating(shop.rating);
-    }
-  }, [shop]);
- 
-
-  useEffect(() => {
     dispatch(fetchShops());
-  }, []);
+  }, [dispatch]);
 
   const shops = useSelector(getShops);
   if (shops === null) {
@@ -45,17 +28,16 @@ const ShopIndex = () => {
       <div id="main-container">
         <div className="container">
           <div className="split-left">
-          <div className="scrollable-container">
-            {shops.map((shop, index) => (
-              <div className="list-items">
-                <div className="split-card card-left">
-                  <img src={shop.photo} className="index-image" />
-                </div>
+            <div className="scrollable-container">
+              {shops.map((shop) => (
+                <div className="list-items" key={shop.id}>
+                  <div className="split-card card-left">
+                    <img src={shop.photo} className="index-image" />
+                  </div>
 
-                <div className="split-card card-right">
-                  <ul className="index-list">
-                    <li>
-                      <ShopIndexItem className="a" key={index} shop={shop}>
+                  <div className="split-card card-right">
+                    <ul className="index-list">
+                      <ShopIndexItem className="a" key={shop.id} shop={shop}>
                         {shop.id}.{shop.name}
                       </ShopIndexItem>
                       <RatingStars
@@ -73,11 +55,10 @@ const ShopIndex = () => {
                           until {shop.closingTime}.00PM
                         </span>
                       </p>
-                    </li>
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
           </div>
           {/* <div className="image"></div> */}

@@ -27,8 +27,8 @@ const ReviewForm = () => {
   const [body, setBody] = useState(review.body);
   const [rating, setRating] = useState(review.rating);
   const { shopId } = useParams();
-  const shop = useSelector(getShop(shopId)) 
-  const shopName = shop.name
+  const shop = useSelector(getShop);
+  const shopName = shop.name;
   useEffect(() => {
     if (review.id) {
       dispatch(fetchReview(review.id));
@@ -39,7 +39,7 @@ const ReviewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const requireFunction = review.id ? editReview : createReview;
 
     const formData = {
@@ -62,9 +62,9 @@ const ReviewForm = () => {
     setBody(e.target.value);
   };
 
-  const handleRating = (e) => {
-    setRating(e.target.value);
-  };
+  // const handleRating = (e) => {
+  //   setRating(e.target.value);
+  // };
 
   const buttonText = review.id ? "Edit Review" : "Create Review";
 
@@ -74,17 +74,21 @@ const ReviewForm = () => {
         <div className="review-form-container">
           <div className="form-content">
             <div className="form-header">
-              <div className="shop-name-header"> 
-              <ShopIndexItem className="review-shop-name" shop={shop}>
-                        {shop.id}.{shopName}
-               </ShopIndexItem>
-            </div>
+              <div className="shop-name-header">
+                <ShopIndexItem className="review-shop-name" shop={shop}>
+                  {shop.id}.{shopName}
+                </ShopIndexItem>
+              </div>
             </div>
             <div className="review-form">
               <form onSubmit={handleSubmit}>
                 <div className="form-holder">
                   <div className="rating-button-o">
-                    <RatingStars rating={rating} setRating={setRating} className="rating-on-form"  />
+                    <RatingStars
+                      rating={rating}
+                      setRating={setRating}
+                      className="rating-on-form"
+                    />
                     <span className="select-star">Select your rating</span>
                   </div>
                 </div>
@@ -104,19 +108,19 @@ const ReviewForm = () => {
                     return <li key={i}>{error}</li>;
                   })}
                 </ul> */}
-                  <div className="post-btn">
-          <input
-            className="post-review create-review"
-            type="submit"
-            value={buttonText}
-            onClick={handleSubmit}
-          />
-        </div>
+                <div className="post-btn">
+                  <input
+                    className="post-review create-review"
+                    type="submit"
+                    value={buttonText}
+                    onClick={handleSubmit}
+                  />
+                </div>
               </form>
             </div>
           </div>
         </div>
-            </div>
+      </div>
     </>
   );
 };

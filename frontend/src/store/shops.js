@@ -1,5 +1,5 @@
-export const RECEIVE_SHOPS = "shops/RECEIVE-SHOPS";
-export const RECEIVE_SHOP = "shops/RECEIVE-SHOP";
+export const RECEIVE_SHOPS = "shops/RECEIVE_SHOPS";
+export const RECEIVE_SHOP = "shops/RECEIVE_SHOP";
 export const RECEIVE_LAST_SHOPS = "RECEIVE_LAST_SHOPS";
 export const RECEIVE_SEARCH_SHOPS = "shops/RECEIVE_SEARCH_SHOPS";
 
@@ -34,13 +34,17 @@ export const receiveSearchShops = (shops) => {
 
 export const getShops = (state) => {
   let result = [];
+  console.info("state", state);
   if (state.shops) {
     return Object.values(state.shops);
   }
   return result;
 };
-export const getShop = (shopId) => (state) =>
-  state.shops ? state.shops[shopId] : null;
+export const getShop = (state) => {
+  // console.info("state.shops-->", state.shops.shop);
+
+  return state.shops ? state.shops.shop : null;
+};
 
 export const fetchShops = () => async (dispatch) => {
   const response = await fetch("/api/shops");
@@ -53,7 +57,7 @@ export const fetchShops = () => async (dispatch) => {
 export const fetchShop = (shopId) => async (dispatch) => {
   const response = await fetch(`/api/shops/${shopId}`);
   if (response.ok) {
-    const shopObj = response.json();
+    const shopObj = await response.json();
     dispatch(receiveShop(shopObj));
   }
 };
@@ -78,8 +82,8 @@ const shopsReducer = (state = {}, action) => {
     case RECEIVE_SHOPS:
       return { ...state, ...action.shops };
     case RECEIVE_SHOP:
-      newState[action.shop.id] = action.shop;
-      return newState;
+      // newState[action.shop.id] = action.shop;
+      return { ...state, ...action.shop };
     case RECEIVE_LAST_SHOPS:
       return { ...action.shops };
     case RECEIVE_SEARCH_SHOPS:

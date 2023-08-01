@@ -1,31 +1,17 @@
 import "./main.css";
-import image from "../../assets/images/strawberry.jpg";
-import ShopIndex from "../shops/ShopIndex";
-import React, { useState, Component, useEffect } from "react";
+import React, { useEffect } from "react";
 // import ShopShow from '../shops/ShopShow'
-import Carousel from "react-simply-carousel";
 import {
-  Link,
-  Redirect,
   useHistory,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchShopLast } from "../../store/shops";
 import Card from "../Card/card";
-import ShopIndexItem from "../shops/ShopIndexItem";
 import { fetchLastReviews } from "../../store/reviews";
-import { getReviewsByShopId } from "../../store/reviews";
-import RatingStars from "../RatingStars/ratingStars";
+
 
 const MainPage = () => {
   const dispatch = useDispatch();
-
-  // const lastThreeShops = useSelector(state => Object.values(state.shops))
-
-  // const lastThreeReviews = useSelector(state => Object.values(state.review))
-  const lastThreeReviews = useSelector((state) => Object.values(state.review));
-
-  // let sss = lastThreeReviews.map((revi) => console.log(revi.shop.photo.url))
 
   useEffect(() => {
     dispatch(fetchLastReviews());
@@ -40,6 +26,8 @@ const MainPage = () => {
     "https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     "https://images.unsplash.com/photo-1633933358116-a27b902fad35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3164&q=80",
   ];
+
+  const lastThreeReviews = useSelector((state) => Object.values(state.review));
 
   const [value, setValue] = React.useState(0);
 
@@ -58,15 +46,7 @@ const MainPage = () => {
     e.preventDefault();
     history.push("/shops");
   };
-  const state = useSelector((state) => state);
-  const lastThreeShops = useSelector((state) => Object.values(state.shops));
 
-  const lastThreeShopsWithRatings = lastThreeShops.map((shop) => {
-    const reviews = getReviewsByShopId(shop.id)(state); // Use the current state here
-    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
-    const averageRating = reviews.length ? totalRating / reviews.length : 0;
-    return { ...shop, rating: averageRating };
-  });
   return (
     <>
       <div className="home-page">
@@ -95,16 +75,21 @@ const MainPage = () => {
           <br></br>
           {/* <ShopIndex /> */}
           <h1 className="recently-added">Recent Activity</h1>
-     
+
           <div className="card-container">
             {lastThreeReviews.map((reviewData, index) => (
               <Card
                 key={index}
-                shopName={reviewData.shop.name}
+                shopId={reviewData.shopId}
+                shopName={reviewData.shopName}
                 address={reviewData.address}
                 city={reviewData.body}
                 rating={reviewData.rating}
-                image={reviewData.user.photo ? reviewData.user.photo.url : image}
+                image={
+                  reviewData.shopPhoto
+                }
+                userName={reviewData.firstName}
+                photo={reviewData.userPhoto}
                 className="card"
               ></Card>
             ))}
