@@ -140,43 +140,6 @@ const ReviewEditForm = () => {
   }
 
   return (
-    // <div id="review-container">
-    //   <form id="review-form" onSubmit={handleSubmit}>
-    //     <h1 id="form-biz-name">{shop.name}</h1>
-    //     <div id="form-details-container">
-    //         <p>sdfasda</p>
-    //         <p>dsfsf</p>
-    //         <p>dsfsf</p>
-    //         <p>dsfsf</p>
-    //       <label id="form-stars">
-    //         Rating:
-    //         <input
-    //           type="number"
-    //           min={1}
-    //           max={5}
-    //           value={rating}
-    //           onChange={(e) => setRating(e.target.value)}
-    //           required
-    //         />
-    //       </label>
-
-    //       <label id="form-review-body">
-    //         Review:
-    //         <textarea
-    //           placeholder="Write your review here!"
-    //           value={body}
-    //           onChange={(e) => setBody(e.target.value)}
-    //           required
-    //         />
-    //       </label>
-    //     </div>
-
-    //     <button id="form-review-btn" type="submit">
-    //       Update Review
-    //     </button>
-    //   </form>
-    //   <p>helllloooooooooooo</p>
-    // </div>
         <>
         <div className="review-container">
           <div className="review-form-container">

@@ -37,25 +37,6 @@ const ReviewForm = () => {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const modalRef = useRef(null);
 
-  const handleModalClose = () => {
-    setShowErrorModal(false);
-  };
-  useEffect(() => {
-    const handleClickOutsideModal = (event) => {
-      // Close the modal if the clicked element is outside the modal
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setShowErrorModal(false);
-      }
-    };
-
-    // Add event listener when the component mounts
-    document.addEventListener("click", handleClickOutsideModal);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener("click", handleClickOutsideModal);
-    };
-  }, []);
 
   useEffect(() => {
     if (review.id) {

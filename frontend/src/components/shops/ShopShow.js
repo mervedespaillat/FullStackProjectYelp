@@ -90,15 +90,9 @@ const ShopShow = () => {
     <div className="shop-image-overlay">
       <h1 className="shop-name">{shop.name}</h1>
       <div className="img-rating">
-        {/* <ul className="rating-list"> */}
-        {/* <li className="rating-stars"> */}
-        <RatingStars rating={rating} setRating={setRating} readOnly={true} />
-        <p className="shop-rating">{shop.rating}</p>
-
-        {/* </li> */}
-        {/* <li className="shop-rating"></li> */}
-        {/* </ul> */}
-      </div>
+  <RatingStars rating={rating} setRating={setRating} readOnly={true} />
+  <p className="shop-rating">{Math.round(shop.rating)}</p>
+</div>
       <div className="total-review">{total_review} reviews</div>
 
       <div className="shop-content">
