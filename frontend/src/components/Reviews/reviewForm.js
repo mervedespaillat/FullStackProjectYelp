@@ -32,7 +32,7 @@ const ReviewForm = () => {
   const shop = useSelector(getShop);
   const shopName = shop.name;
   const [errors, setErrors] = useState([]);
-  console.log(shopName)
+
 
   const [showErrorModal, setShowErrorModal] = useState(false);
   const modalRef = useRef(null);

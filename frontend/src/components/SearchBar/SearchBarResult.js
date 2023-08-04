@@ -24,16 +24,6 @@ const SearchBarResult = () => {
   if (!searchedShops || Object.keys(searchedShops).length === 0) {
     return <div className="no-result">No results found</div>;
   }
-  // const shopItem = Object.values(searchedShops["0"])
-  //   // .filter((shop) => shop.name.toLowerCase().includes(query.toLowerCase()))
-  //   .map((shop) => <ShopIndexItem shop={shop} key={shop.id} />);
-
-  Object.values(searchedShops).map((shop)=>{
-    console.log(shop)
-  })
- 
-
-
   return (
 
     <>
