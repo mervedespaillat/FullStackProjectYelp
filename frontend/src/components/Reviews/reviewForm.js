@@ -79,7 +79,6 @@ const ReviewForm = () => {
 
   return (
     <>
-      <div className="review-container">
         <div className="review-form-container">
           <div className="form-content">
             <div className="form-header">
@@ -132,7 +131,6 @@ const ReviewForm = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

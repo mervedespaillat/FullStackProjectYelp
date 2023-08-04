@@ -197,7 +197,7 @@ const ShopShow = () => {
     </div>
     <ReviewIndex />
   </div>
-</div>;
+</div>
 
   </>;
 };

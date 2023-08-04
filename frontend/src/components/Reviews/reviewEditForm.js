@@ -141,7 +141,6 @@ const ReviewEditForm = () => {
 
   return (
         <>
-        <div className="review-container">
           <div className="review-form-container">
             <div className="form-content">
               <div className="form-header">
@@ -187,7 +186,6 @@ const ReviewEditForm = () => {
               </div>
             </div>
           </div>        
-        </div>
       </>
   );
 };

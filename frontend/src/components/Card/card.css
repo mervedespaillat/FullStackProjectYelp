@@ -85,8 +85,16 @@
 }
 
 .review-user-name{
-  /* margin-left: 5px; */
+  margin-left: 5px;
   font-weight: 500px;
   width: 80%;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.profile-card-photo{
+  height: 80px;
+  width: 20%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }

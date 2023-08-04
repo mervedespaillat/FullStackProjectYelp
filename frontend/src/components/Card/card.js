@@ -20,7 +20,7 @@ const UserInfo = ({ photo, userName }) => {
     <div className="review-user-info">
       {/* <img src={photo} alt="" className="review-user-photo"></img> */}
       {showUserIcon ? (
-          <div className="profile-photo">
+          <div className="profile-card-photo">
             {/* <i className="fa-solid fa-user"></i> */}
             <img
               src="https://img.freepik.com/premium-vector/flat-instagram-icons-notifications_619991-50.jpg?w=1380"
@@ -29,7 +29,7 @@ const UserInfo = ({ photo, userName }) => {
             ></img>
           </div>
         ) : (
-          <div className="profile-photo">
+          <div className="profile-card-photo">
             <img src={photo} alt="" className="user-photo" />
           </div>
         )}
