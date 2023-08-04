@@ -109,7 +109,7 @@ const ReviewForm = () => {
               </div>
             </div>
             <div className="review-form">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="review-form-template">
                 <div className="form-holder">
                   <div className="rating-button-o">
                     <RatingStars

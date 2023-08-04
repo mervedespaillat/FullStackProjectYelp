@@ -12,6 +12,9 @@
   border-radius: 4px;
   cursor: text;
 }
+.review-form-template{
+  width: 90%;
+}
 
 .select-star{
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -25,7 +28,7 @@
 }
 
 .post-btn{
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
