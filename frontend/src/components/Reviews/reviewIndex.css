@@ -11,8 +11,8 @@
   }
   
   .user-photo {
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
     border: 1px solid;
     border-radius: 50%;
@@ -27,7 +27,7 @@
   
   .profile-photo {
     height: 80px;
-    width: 10%;
+    width: 20%;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -57,7 +57,7 @@
     width: 600px;
     margin-top: 20px;
   }
-  
+
   .ppp{
     display: flex;
     flex-direction: column;

@@ -14,9 +14,25 @@ const CardImage = ({ image, width }) => {
   return null;
 };
 const UserInfo = ({ photo, userName }) => {
+  const showUserIcon = !photo || photo.trim() === "";
+
   return (
     <div className="review-user-info">
-      <img src={photo} alt="" className="review-user-photo"></img>
+      {/* <img src={photo} alt="" className="review-user-photo"></img> */}
+      {showUserIcon ? (
+          <div className="profile-photo">
+            {/* <i className="fa-solid fa-user"></i> */}
+            <img
+              src="https://img.freepik.com/premium-vector/flat-instagram-icons-notifications_619991-50.jpg?w=1380"
+              alt=""
+              className="user-photo userNull"
+            ></img>
+          </div>
+        ) : (
+          <div className="profile-photo">
+            <img src={photo} alt="" className="user-photo" />
+          </div>
+        )}
       <p className="review-user-name">{userName}</p>
     </div>
   );
@@ -58,9 +74,10 @@ const Card = ({
   rating,
   photo,
   userName,
+
 }) => {
   return (
-    <div>
+    <div className="cardself">
       <div className="styleCard">
         <UserInfo userName={userName} photo={photo} />
         <CardImage image={image}></CardImage>
