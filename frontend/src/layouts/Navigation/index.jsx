@@ -27,136 +27,77 @@ const Navigation = () => {
   }, [location]);
 
   let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = <ProfileButton user={sessionUser} />;
-  // } else {
-  //   sessionLinks = (
-  //     <>
-  //       <div
-  //         id="right-nav"
-  //         style={{
-  //           display: path === "/login" || path === "/signup" ? "none" : "flex",
-  //         }}
-  //       >
-  //         <NavLink
-  //           className="login"
-  //           to="/login"
-  //           onClick={() => handlePageChange("login")}
-  //         >
-  //           Log In
-  //         </NavLink>
-  //         <NavLink
-  //           className="signup"
-  //           to="/signup"
-  //           onClick={() => handlePageChange("signup")}
-  //         >
-  //           Sign Up
-  //         </NavLink>
-  //       </div>
-  //     </>
-  //   );
-  // }
 
-  // return (
-  //   <>
-  //     <nav className={`navbar ${isShopPage ? "navbar-white" : ""}`}>
-  //       <div className="logo">
-  //         <a href="/" exact>
-  //           <p
-  //             className={
-  //               path === "/login" || path === "/signup" || isShopPage
-  //                 ? "navbar-text-onchange"
-  //                 : "navbar-text"
-  //             }
-  //           >
-  //             melt
-  //           </p>
-  //           <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
-  //         </a>
-  //         <div className="search-items">
-  //           <SearchBar></SearchBar>
-  //         </div>
-  //       </div>
-  //       <div className="links">
-  //         <ul>
-  //           <li className={isSignUpPage || isLoginPage ? "hidden" : ""}>
-  //             {sessionLinks}
-  //           </li>
-  //         </ul>
-  //       </div>
-  //     </nav>
-  //   </>
-  // );
   if (sessionUser) {
-    sessionLinks = (  
-        <>
-          <div id="left-nav">
-        <div className="logo">
-         <a href="/">
-          <p
-              className={
-                path === "/login" || path === "/signup" || isShopPage
-                  ? "navbar-text-onchange"
-                  : "navbar-text"
-              }
-            >
-              melt
-            </p>
-            <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
-          </a>
+    sessionLinks = (
+      <>
+        <div id="left-nav">
+          <div className="logo">
+            <a href="/">
+              <p
+                className={
+                  path === "/" ? "navbar-text" : "navbar-text-onchange"
+                }
+              >
+                melt
+              </p>
+              <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
+            </a>
           </div>
-          </div>
+        </div>
 
-          <div className="middle nav search-items">
-            <SearchBar></SearchBar>
+        <div className="middle nav search-items">
+          <SearchBar></SearchBar>
+        </div>
+        <div id="right-nav">
+          <div id="user">
+            <ProfileButton user={sessionUser} />
           </div>
-          <div id="right-nav">
-            <div id="user">
-              <ProfileButton user={sessionUser} />
-            </div>
+        </div>
+      </>
+    );
+  } else {
+    sessionLinks = (
+      <>
+        <div id="left-nav">
+          <div className="logo">
+            <a href="/">
+              <p
+                className={
+                  path === "/login" || path === "/signup" || isShopPage
+                    ? "navbar-text-onchange"
+                    : "navbar-text"
+                }
+              >
+                melt
+              </p>
+              <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
+            </a>
           </div>
-      
-        </>
-      )
-    } else {
-      sessionLinks = (
-        <>
-         <div id="left-nav">
-        <div className="logo">
-         <a href="/" >
-          <p
-              className={
-                path === "/login" || path === "/signup" || isShopPage
-                  ? "navbar-text-onchange"
-                  : "navbar-text"
-              }
-            >
-              melt
-            </p>
-            <i className="fab fa-yelp fa-3x" style={{ color: "red" }}></i>
-          </a>
-          </div>
-          </div>
+        </div>
 
-          <div className="middle nav search-items">
-            <SearchBar></SearchBar>
-          </div>
+        <div className="middle nav search-items">
+          <SearchBar></SearchBar>
+        </div>
 
-          <div id="right-nav" style={{ display: (path === '/login' || path === '/signup') ? 'none' : 'flex' }}>
-            <NavLink className="login" to="/login">Log In</NavLink>
-            <NavLink className="signup"to="/signup">Sign Up</NavLink>
-          </div>
-  
-        </>
+        <div
+          id="right-nav"
+          style={{
+            display: path === "/login" || path === "/signup" ? "none" : "flex",
+          }}
+        >
+          <NavLink className="login" to="/login">
+            Log In
+          </NavLink>
+          <NavLink className="signup" to="/signup">
+            Sign Up
+          </NavLink>
+        </div>
+      </>
+    );
+  }
 
-      );
-    }
-
-  return (
-      <header>
-            {sessionLinks}           
-      </header>
-  );
+  return <header>{sessionLinks}</header>;
 };
 
 export default Navigation;

@@ -17,28 +17,28 @@ const LoginForm = () => {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // setCredential("");
-    // setPassword("");
-
+  
     setErrors([]);
-    return dispatch(sessionActions.login({ email, password })).catch(
-      async (res) => {
-        let data;
-        try {
-          data = await res.clone().json;
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
+  
+    try {
+      await dispatch(sessionActions.login({ email, password }));
+    } catch (res) {
+      let data;
+      try {
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
       }
-    );  
-    //Api ile bağlantı kuracak olan servisi buraya yazabilirsin.
-    // console.log(`Username:${username}, Password:${password}`);
+      if (data?.errors) {
+        setErrors(data.errors);
+      } else if (data) {
+        setErrors([data]);
+      } else {
+        setErrors([res.statusText]);
+      }
+    }
   };
 
   const handleDemoUser = (e) => {
@@ -79,10 +79,10 @@ const LoginForm = () => {
         <button type="submit">Login</button>
         <button type="button" onClick={handleDemoUser}>Demo User</button>
         <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
+                  {errors.map((error, i) => {
+                    return <li key={i} className="review-error"><span><i class="fa-solid fa-circle-exclamation"></i></span> {error}</li>;
+                  })}
+                </ul>
       </form>
       </div>
       <div className="login-right-side">

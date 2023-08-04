@@ -17,7 +17,6 @@ const ShopShow = () => {
   const history = useHistory();
   const { shopId } = useParams();
 
-  console.info("shopId--->", shopId);
 
   useEffect(() => {
     dispatch(fetchReviews(shopId));
@@ -27,8 +26,6 @@ const ShopShow = () => {
   const shop = useSelector(getShop);
   const reviews = useSelector(getReviews);
 
-  console.info("shop--->", shop);
-  console.info("reviews--->", reviews);
 
   let sessionUser = useSelector((state) => state.session.user);
   if (!sessionUser) {
@@ -82,7 +79,6 @@ const ShopShow = () => {
   };
 
   if (!shop) {
-    console.info("test");
     return <div>Loading....</div>;
   }
 

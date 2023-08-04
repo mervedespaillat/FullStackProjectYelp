@@ -14,7 +14,6 @@ const MeltMapWrapper = () => {
 
   const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-  console.log("map", shop);
 
   return (
     <div className="map-one">

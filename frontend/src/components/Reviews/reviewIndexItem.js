@@ -4,14 +4,28 @@ import { deleteReview } from "../../store/reviews";
 import "./reviewIndex.css";
 import RatingStars from "../RatingStars/ratingStars";
 import { formatDateTime } from "../../util/date";
+import { useSelector } from "react-redux";
 
 const ReviewIndexItem = ({ review }) => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const sessionUserId = sessionUser?.id 
+
 
   const [rating, setRating] = useState(review.rating);
-  const handleClick = () => {
-    dispatch(deleteReview(review.id));
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const reviewId = e.target.id;
+    dispatch(deleteReview(reviewId));
   };
+
+  const deleteButton = () => {
+    if (review.userId === sessionUserId) {
+        return (<button className="del-btn-review" id={review.id} onClick={handleClick}>Delete Review</button>)
+    }
+}
+
 
   if (!review) return null;
 
@@ -40,9 +54,12 @@ const ReviewIndexItem = ({ review }) => {
           {review.userFname} {review.userLname}
         </div>
         <div className="delete-btn-review">
-          <button onClick={handleClick}>Delete</button>
+          {/* <button onClick={handleClick}>Delete</button> */}
+          {deleteButton()}
         </div>
       </div>
+      <div className="ppp">
+
       <div className="rating-container">
         <RatingStars
           rating={review.rating}
@@ -52,6 +69,7 @@ const ReviewIndexItem = ({ review }) => {
         <p>{date}</p>
       </div>
       <div className="rating-context">{review.body}</div>
+      </div>
     </div>
   );
 };

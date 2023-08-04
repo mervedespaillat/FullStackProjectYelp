@@ -4,6 +4,7 @@
 
       json.user_fname review.user.first_name
       json.user_lname review.user.last_name
+      json.user_id review.user.id
       json.user_photo review.user.photo.url
     end
   end

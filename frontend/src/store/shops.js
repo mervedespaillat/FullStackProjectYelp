@@ -34,14 +34,12 @@ export const receiveSearchShops = (shops) => {
 
 export const getShops = (state) => {
   let result = [];
-  console.info("state", state);
   if (state.shops) {
     return Object.values(state.shops);
   }
   return result;
 };
 export const getShop = (state) => {
-  // console.info("state.shops-->", state.shops.shop);
 
   return state.shops ? state.shops.shop : null;
 };

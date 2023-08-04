@@ -2,6 +2,7 @@ class Review < ApplicationRecord
     validates :body, :rating, presence: true
     validates :body, length: {minimum: 10}
 
+
     belongs_to :shop
     belongs_to :user
 

@@ -18,3 +18,13 @@
 #shop-profile-container li{
     text-decoration: none;
 }
+
+.no-result{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    font-family: 'Oxygen', sans-serif;
+}

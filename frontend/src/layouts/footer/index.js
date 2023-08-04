@@ -11,10 +11,10 @@ const Footer = () => {
         <ul className="footer-column">
           <h2 className="footer-title">About</h2>
           <li>
-            <a href="https://github.com/mervedespaillat">Github</a>
+            <a href="https://github.com/mervedespaillat" target="_blank">Github</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/merve-do%C4%9Fan-espaillat-872298161/">
+            <a href="https://www.linkedin.com/in/merve-do%C4%9Fan-espaillat-872298161/" target="_blank">
               LinkedIn
             </a>
           </li>

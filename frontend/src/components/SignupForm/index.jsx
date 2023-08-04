@@ -29,8 +29,7 @@ const SignupForm = () => {
           last_name,
           zip_code,
           password,
-        })
-      ).catch(async (res) => {
+        })).catch(async (res) => {
         let data;
         try {
           data = await res.clone().json();
@@ -130,6 +129,11 @@ const SignupForm = () => {
           <p className="already-yelp">
             Already on Yelp? <a href="/login">Log in</a>
           </p>
+        <ul>
+                  {errors.map((error, i) => {
+                    return <li key={i} className="review-error"><span><i class="fa-solid fa-circle-exclamation"></i></span> {error}</li>;
+                  })}
+                </ul>
         </form>
       </div>
       <div className="signup-right-side">
