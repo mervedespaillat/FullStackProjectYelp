@@ -43,14 +43,6 @@ export const getShop = (state) => {
   return state.shops ? state.shops.shop : null;
 };
 
-export const getShopById = (shopId) => state => {
-  console.log("geliyor")
-  if (state.shops) {
-      return state.shops.shopId;
-  } else {
-      return null;
-  };
-}
 
 export const fetchShops = () => async (dispatch) => {
   const response = await fetch("/api/shops");
