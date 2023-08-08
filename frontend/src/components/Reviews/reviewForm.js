@@ -12,51 +12,60 @@ import {
 import { useEffect, useState } from "react";
 import "./reviewForm.css";
 import RatingStars from "../RatingStars/ratingStars";
-import { getShop } from "../../store/shops";
+import { getShop, getShopById } from "../../store/shops";
 import ShopIndexItem from "../shops/ShopIndexItem";
 import ErrorModal from "./ErrorModal";
 import { useRef } from "react";
+import { fetchShop } from "../../store/shops";
 // I need to figure it out how im gonna get the review id
 
 const ReviewForm = () => {
   const dispatch = useDispatch();
-  const { reviewId } = useParams();
+  // const { reviewId } = useParams();
+  // console.log("review id=", reviewId)
   const history = useHistory();
 
-  let review = useSelector(getReview(reviewId));
-  review ||= {};
+  // let review = useSelector(getReview(reviewId));
+  // review ||= {};
 
-  const [body, setBody] = useState(review.body);
-  const [rating, setRating] = useState(review.rating);
+  const [body, setBody] = useState("");
+  const [rating, setRating] = useState("");
   const { shopId } = useParams();
-  const shop = useSelector(getShop);
-  const shopName = shop.name;
+  const shop = useSelector(state => state.shops.shop);   
+
   const [errors, setErrors] = useState([]);
-
-
   const [showErrorModal, setShowErrorModal] = useState(false);
   const modalRef = useRef(null);
 
-
   useEffect(() => {
-    if (review.id) {
-      dispatch(fetchReview(review.id));
-    }
-  }, [review]);
+    dispatch(fetchShop(shopId));
+  }, [dispatch, shopId]);
+
+
+  if (!shop) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <div className="loading-text">Loading shop data...</div>
+      </div>
+    );
+  }
+
+  const shopName = shop.name;
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requireFunction = review.id ? editReview : createReview;
+    // const requireFunction = review.id ? editReview : createReview;
 
     const formData = {
-      ...review,
+      // ...review,
       body: body,
       shopId: shopId,
       rating: rating,
     };
-    return dispatch(requireFunction(formData))
+    return dispatch(createReview(formData))
       .then(() => {
         history.push(`/shops/${shopId}`);
       })
@@ -75,7 +84,7 @@ const ReviewForm = () => {
   //   setRating(e.target.value);
   // };
 
-  const buttonText = review.id ? "Edit Review" : "Create Review";
+  const buttonText = "Create Review";
 
   return (
     <>
@@ -84,7 +93,7 @@ const ReviewForm = () => {
             <div className="form-header">
               <div className="shop-name-header">
                 <ShopIndexItem className="review-shop-name" shop={shop}>
-                  {shop.id}.{shopName}
+                  {shopId}
                 </ShopIndexItem>
               </div>
             </div>

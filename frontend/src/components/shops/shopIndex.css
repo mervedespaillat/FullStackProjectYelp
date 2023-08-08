@@ -47,6 +47,8 @@ position: sticky;
   font-weight: bold;
   text-decoration: none;
   color: black;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 22px;
 }
 
 .list-items a:hover {

@@ -7,18 +7,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const SearchBar = () => {
 
-    // const dispatch = useDispatch()
-
-    // const [input, setInput] = useState("")
-    
-    // useEffect(()=>{
-    //     dispatch(fetchSearchShops())
-    //   },[])
-
-    //   const handleChange = (value) => {a
-    //     setInput(value)
-    //     fetchSearchShops(value)
-    //   }
 
       const history = useHistory();
       const [query, setQuery] = useState('');
@@ -42,7 +30,7 @@ const SearchBar = () => {
         <>
       
         <div className='input-wrapper'>
-            <input placeholder='Type to search...' value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleKeyDown}></input>
+            <input placeholder='Search by name or by city' value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleKeyDown}></input>
             <button id="search-button" onClick={handleClick}>
                 <i id="search-icon" className="fa-solid fa-magnifying-glass"></i>
             </button>
