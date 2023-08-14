@@ -53,11 +53,11 @@ const LoginForm = () => {
     <div className="login-page">
       <div className="login-left-side">
       <form onSubmit={handleSubmit}>
-        <h2>Log in to Yelp</h2>
-        <p className="new-yelp">New to Yelp? <NavLink to ="/signup">Sign Up</NavLink></p>
+        <h2>Log in to Melt</h2>
+        <p className="new-yelp">New to Melt? <NavLink to ="/signup">Sign Up</NavLink></p>
         <p className="terms">
-            By continuing, you agree to Yelp's <a href="#">Terms of Service</a>{" "}
-            and <br></br>acknowledge Yelp's <a href="#">Privacy Policy</a>.
+            By continuing, you agree to Melt's <a href="#">Terms of Service</a>{" "}
+            and <br></br>acknowledge Melt's <a href="#">Privacy Policy</a>.
           </p>
         <label>
           <input

@@ -60,11 +60,11 @@ const SignupForm = () => {
     <div className="signup-page">
       <div className="signup-left-side">
         <form onSubmit={handleSubmit}>
-          <h2>Sign Up for Yelp</h2>
+          <h2>Sign Up for Melt</h2>
           <h3>Connect with great local businesses</h3>
           <p className="terms">
-            By continuing, you agree to Yelp's <a href="#">Terms of Service</a>{" "}
-            and <br></br>acknowledge Yelp's <a href="#">Privacy Policy</a>.
+            By continuing, you agree to Melt's <a href="#">Terms of Service</a>{" "}
+            and <br></br>acknowledge Melt's <a href="#">Privacy Policy</a>.
           </p>
           <label>
             <input
@@ -127,7 +127,7 @@ const SignupForm = () => {
             Demo User
           </button>
           <p className="already-yelp">
-            Already on Yelp? <a href="/login">Log in</a>
+            Already on Melt? <a href="/login">Log in</a>
           </p>
         <ul>
                   {errors.map((error, i) => {
